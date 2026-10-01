@@ -8,8 +8,13 @@ import 'screens/main_navigation_screen.dart';
 import 'screens/bendahara_screen.dart';
 import 'screens/sekretaris_screen.dart';
 import 'screens/diaken_screen.dart';
+import 'screens/multimedia_screen.dart';
+import 'screens/pemusik_screen.dart';
+import 'services/api_config.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await ApiConfig.init();
   runApp(const MyApp());
 }
 
@@ -84,6 +89,16 @@ class _RootWrapperState extends State<RootWrapper> {
     } else if (_currentRole == UserRole.diaken) {
       targetScreen = DiakenScreen(
         key: const ValueKey('UserRole.diaken'),
+        onLogout: _logout,
+      );
+    } else if (_currentRole == UserRole.multimedia) {
+      targetScreen = MultimediaScreen(
+        key: const ValueKey('UserRole.multimedia'),
+        onLogout: _logout,
+      );
+    } else if (_currentRole == UserRole.pemusik) {
+      targetScreen = PemusikScreen(
+        key: const ValueKey('UserRole.pemusik'),
         onLogout: _logout,
       );
     } else {

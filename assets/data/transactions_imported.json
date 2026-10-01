@@ -1,0 +1,1802 @@
+[
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Warta 49, Kesalahan biaya FC tertulis 187,000 seharusnya 187,500, Kurangbayar Rp. 500",
+    "amount": 500,
+    "reference": "1",
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Warta 50, Ucapan Syukur D.M Limbong br Sitorus tertulis 500,000 seharusnya 300.000, sehingga perlu dikeluarkan sebesar Rp. 200,000",
+    "amount": 200000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kotak 1 (Merah)",
+    "amount": 1962000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kotak 1 (Merah)",
+    "amount": 910000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kotak 3 (Orange)",
+    "amount": 1002000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kotak 4 (amplop Bakti Natal ke Kantor sinode",
+    "amount": 1095000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "-  Kel Ny. Pdt UTP  Tambunan Br Sitompul",
+    "amount": 1000000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "-  Pnt. P Tambunan br Silitonga",
+    "amount": 1000000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "-  Ucapan Natal Sektor 3",
+    "amount": 500000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. Ny Nainggolan br Harianja, Jan-Des 2025",
+    "amount": 300000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. J Sinaga br Tarigan, Lunas 2025",
+    "amount": 1200000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Persembahan Ibadah Natal Kel. Ny. Pdt UTP Tambunan br Sitompul",
+    "amount": 700000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Tanda KAsih Jemaat dan YAtim PIatu (Sabar Sitompul)",
+    "amount": 250000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Persembahan Malam Akhir Tahun",
+    "amount": 1609000,
+    "reference": "Warta 1",
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kotak 1 (Merah)",
+    "amount": 756000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kotak 2 (Biru)",
+    "amount": 663000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kotak 3 (Orange)",
+    "amount": 647000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. J Tambunan br Nainggolan (+)",
+    "amount": 250000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. F Ambarita br Simarmata",
+    "amount": 500000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "NN via Qris",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Monika MAsniar",
+    "amount": 75000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "NN via Qris",
+    "amount": 150000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel I .P Simanjuntak /E br Simanungkalit",
+    "amount": 1000000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. Pnt TP Manurung br PAnggabean",
+    "amount": 1000000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel . Pnt (Em) Ny Naibaho br Situmorag (op. Uli)",
+    "amount": 150000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. Ny Pnt Simarmata br Gultom (Op. Nuel)",
+    "amount": 400000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. Ny Gultom br Pakpahan (op Arga)",
+    "amount": 785000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. D Panggabean br Sipahutar (4 orang)",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. HP Sitompul/Pdt DDA Gultom (2 orang)",
+    "amount": 150000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. Ny Simbolon br Situmorang (Op. Matthew) ( 8 Orang)",
+    "amount": 280000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. J Sibuea br Situmorang (6 0rang)",
+    "amount": 320000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. Pnt J Limbong br Sagala (8 orang)",
+    "amount": 160000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. Pnt. A Simbolon br Sitompul (10 orang)",
+    "amount": 172000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. A Lumban Tungkup/Pnt (Em) br Simanjutak (8 orang)",
+    "amount": 510000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. Ny M Gultom br Tambunan (6 orang)",
+    "amount": 390000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. Ny Pnt (Em) Simarmata Lumbanraja",
+    "amount": 260000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. Pnt TP Manurung br Panggabean, Januari 2026",
+    "amount": 300000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- kel. Pnt R Simbolon br Gultom, Januari 2026",
+    "amount": 200000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- kel. Ny Simbolon br Situmorang, Januari 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. V.S Simanungkalit br Sianturi, Januari 2026",
+    "amount": 200000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. Ny Simanungkalit br Sianturi, Januari 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. H.P Sitompul/Pdt DDA Gultom. Jan 2026",
+    "amount": 300000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Viatikum Penghotbah (Pdt Marietta)",
+    "amount": 500000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "FC Warta dan LAporan Tahunan",
+    "amount": 293000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kotak 1 (Merah)",
+    "amount": 1009000,
+    "reference": "Warta 2",
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kotak 2 (Biru)",
+    "amount": 941000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kotak 3 (Orange)",
+    "amount": 898000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kep. Op Tiardo Lumbagaol (7 orang)",
+    "amount": 350000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. Ny. M.P Sihombing br Sibarani (Op. Teto)",
+    "amount": 340000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. V Simanungkalit br Sianturi (Op. Ethan)",
+    "amount": 400000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. Pnt F Sibarani br Hutagalung, Jan 2026",
+    "amount": 150000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "-Kel. Pnt R Gultom br Harianja, Jan 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. Ny Gultom br Tambunan (Op. Togar), Jan 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. Pnt U Sitinjak br Simorangkir, Jan 2026",
+    "amount": 300000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. D Panggabean br Sipahutar, Jan 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. Pnt (Em) RM Simorangkir br Pakpahan, Jan 2026",
+    "amount": 150000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. K Simbolon br Manulang, Jan 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel Pnt HLR Sihombng br Manik, Jan 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. Pnt A Simbolon br Sitompul, Jan 2026",
+    "amount": 200000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. Pnt. S Samosir br Sagala, Jan 2026",
+    "amount": 200000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. Pnt M Nanik br Atitonang, Jan 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. Pnt D.W Sihaloho br Simanjuntak, Jan 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. C.A Siahaan/Pnt. GDV br Sihombing, Jan 2026",
+    "amount": 250000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. P.H Simamata br Gultom, Jan 2026",
+    "amount": 200000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. IJTH Simarmata br Sianipar, Jan 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel Op Nuel Simarmata br Gultom, Jan 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel Ny Pnt M.P Sihombing br Sibarani, JAn 2026",
+    "amount": 150000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. GAH Sihombing br Nainggolan, Jan 2026",
+    "amount": 150000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- NN (utk Mulmed)",
+    "amount": 1000000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Sabar Sitompul",
+    "amount": 400000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. P. Tampubolon br Tambunan",
+    "amount": 500000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- NN ( Mulmed)",
+    "amount": 1000000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- NN Mulmed)",
+    "amount": 400000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Ryan Sinaga",
+    "amount": 500000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "FC Warta",
+    "amount": 75000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "NN (utk Mulmed)",
+    "amount": 1000000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "NN ( Mulmed)",
+    "amount": 1000000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "NN ( Mulmed)",
+    "amount": 400000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Beli Keranjang Sampah",
+    "amount": 118000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Beli Lem tikus dan racun semut",
+    "amount": 68000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Natura Pendeta",
+    "amount": 4750000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Transpor PHJ",
+    "amount": 2000000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Transport Sie Nyanyian dan koor",
+    "amount": 1600000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Transport GSM",
+    "amount": 1500000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Transpor Mulmed",
+    "amount": 800000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Transport Sie Diakoni",
+    "amount": 250000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Transpor Sarana Prasarana",
+    "amount": 250000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Transport Penatua",
+    "amount": 7200000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Rumah Tangga Gereja",
+    "amount": 500000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Listrik Gereja",
+    "amount": 1155384,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Listrik Pastori",
+    "amount": 173333,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kotak 1 (Merah)",
+    "amount": 1269000,
+    "reference": "WARTA 3",
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kotak 2 (Biru)",
+    "amount": 969000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kotak 3 (Orange)",
+    "amount": 1137000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. R Nainggolan/Pnt T.U br Simarmata, Jan 2026",
+    "amount": 150000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. B Simbolon/Pnt. M br Manurung, JAn 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. A Hutapea br Gultom, Des 2025",
+    "amount": 200000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. A Hutapea br Gultom, Jan 2026",
+    "amount": 250000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel J Manalu br Situmorang, Des 2025",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel J Manalu br Situmorang, JAn 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. Ny Pdt. UTP Tambunan br Sitompul, Jan 2026",
+    "amount": 200000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "NN (Mulmed)",
+    "amount": 400000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. L Sihaloho br Limbong (mulmed)",
+    "amount": 300000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Persembahan Arisan dan Kebaktian baru PSSSI wilayah MArgasih",
+    "amount": 432000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Return Panitia Natal",
+    "amount": 13110014,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Viatikum Pengkhotbah",
+    "amount": 500000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "FC warta",
+    "amount": 75000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Snack Pengkhotbah",
+    "amount": 35000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Bakti Bulanan ke Wilayan XI GKPI, JAn 2026",
+    "amount": 350000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Suara GKPI",
+    "amount": 150000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Pelunasan pembelian Pastori Korwil XI",
+    "amount": 13103016,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "NN (Mulmed)",
+    "amount": 400000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Kel. L Sihaloho br Limbong (mulmed)",
+    "amount": 300000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kotak 1 (Merah)",
+    "amount": 1140000,
+    "reference": "Warta 4",
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kotak 2 (Biru)",
+    "amount": 1067000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kotak 3 (Orange)",
+    "amount": 1135000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Sekolah Minggu",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. T.D Malau br MAlau, Lunas 2025",
+    "amount": 600000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel Pnt. O.V Sigiro be Sagala, Jan 2026",
+    "amount": 150000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. Pnt (Em) Nt Naibaho br Situmorang, Jan 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- F,D,Y NAibaho",
+    "amount": 50000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "-Kel.  D.M. Manurung br Sinaga. Jan 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "-Kel D.H Panggabean br Panjaitan, Jan 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- NN",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- D.M Manurung",
+    "amount": 150000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Monika Masniar",
+    "amount": 64000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- NN",
+    "amount": 20000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Bunga Bank, Jan 2026",
+    "amount": 38688,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Persembahan Kotak ke Kantor Pusat",
+    "amount": 1135000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Bakti Bulaan ke Kantor Pusat",
+    "amount": 6203500,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Konsumsi Rapat MAjelis",
+    "amount": 1750000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Iuran Kebersihan Gereja",
+    "amount": 200000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "FC Warta dan BAhan Rapat",
+    "amount": 336000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Pajak atas Bunga Bank",
+    "amount": 7738,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kotak 1 (Merah)",
+    "amount": 1297000,
+    "reference": "Warta 5",
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kotak 2 (Biru)",
+    "amount": 1078000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kotak 3 (Orange)",
+    "amount": 1225000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Sekolah Minggu",
+    "amount": 536000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- NN, Jan 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. H Lumbantoruan br Sinaga, Jan 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel Pnt P Tambunan br Silitonga, Jan-Feb 2026",
+    "amount": 1000000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. Pnt R Simbolon br Gultom, Feb 2026",
+    "amount": 200000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. Nt Simbolon br Situmorang, Feb 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. P.H Simarmata br Gultom, Feb 2026",
+    "amount": 200000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel. IJTH Simarmata br Sianipar, Feb 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel Ny Pnt Simarmata br Gultom, Feb 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Novel Hutabarat, Jan-Feb 2026",
+    "amount": 300000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kel HP Sitompul /Pdt DDA br Gultom, Feb 2026",
+    "amount": 300000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Monika Masniar",
+    "amount": 40000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Viatikum Pendeta",
+    "amount": 500000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Snack penghotbah",
+    "amount": 18750,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "FC Warta",
+    "amount": 75000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Gaji Goster Feb 2026",
+    "amount": 2900000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Pembellian celengan 10 lusin",
+    "amount": 290000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Natura Pendeta, Feb 2026",
+    "amount": 4750000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kotak 1 (Merah)",
+    "amount": 1535000,
+    "reference": "Warta 6",
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kotak 2 (Biru)",
+    "amount": 1189000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Kotak 3 (Orange)",
+    "amount": 1356000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Sekolah Minggu",
+    "amount": 424000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Persembahan Online",
+    "amount": 6000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Persembahan PA Sie Perempuan",
+    "amount": 175000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Persembahan Sermon Gabungan",
+    "amount": 581000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "- Persembahan Ibadah Kel Op Bangun Gultom",
+    "amount": 600000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. Y.P Simorangkir br Siagian, Jan-Feb 2026",
+    "amount": 200000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. D Panggabean br Sipahutar, Feb 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. D.M Manurung br Sinaga, Feb 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. K Simbolon br Manulang, Feb 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. E Kudadiri br Hutahayan, Jan 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. Pnt. TP Manurung br Panggabean, Feb 2026",
+    "amount": 300000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. Pnt. H.L.R Sihombing br Manik, Feb 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. Pnt. A Simbolon br Sitompul, Feb 2026",
+    "amount": 150000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. Pnt. D.W Sihaloho br Simanjuntak, Feb 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. Pnt. O.V Sigiro br Sagala, Feb 2026",
+    "amount": 150000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. Pnt. R Gultom br Harianja, Feb 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Ny. Pnt (Em) M Gultom br Tambunan, Feb 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. Pnt. S Samosir br Sagala, Feb 2026",
+    "amount": 200000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. Pnt U Stinjak br Simorangkir, Feb 2026",
+    "amount": 300000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. B Simbolon/Pnt M Br Manurung, Feb 2026",
+    "amount": 100000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Pnt F Naibaho, Jan-Feb 2026",
+    "amount": 200000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Ny. Pnt M.P Sihombing br SIbarani, Feb 2026",
+    "amount": 150000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. G.A.H Sihombing br NAinggolan, Feb 2026",
+    "amount": 150000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel. F.M Simbolon br Panjaitan",
+    "amount": 300000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Kel.  Pnt. T.P MAnurung br Panggabean",
+    "amount": 1000000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "INCOME",
+    "description": "Penjualan 2 unit speaker",
+    "amount": 400000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Fotocopy Warta",
+    "amount": 75000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "FC Bahan Sidang Umum Jemaat",
+    "amount": 345000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Bakti Bulanan Wilayah XI, Feb 2026",
+    "amount": 350000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Suara GKPI,",
+    "amount": 150000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Transport PHJ, feb 2026",
+    "amount": 2000000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Transport Penatua, Feb 2026",
+    "amount": 7200000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Transport Sie musik, nyanian dan koor, Feb 2026",
+    "amount": 1650000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Transport GSM, Feb 2026",
+    "amount": 1500000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Transport Multimedia, Feb 2026",
+    "amount": 800000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Transport Sie Sarpras, Feb 2026",
+    "amount": 250000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Transport Sie Diakoni, Feb 2026",
+    "amount": 250000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Transpor Pendeta mengikuti Sermon Pendeta",
+    "amount": 500000,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Konsumsi Sidang Umum Jemaat",
+    "amount": 2194100,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Listrik Gereja",
+    "amount": 593100,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Listrik Pastori",
+    "amount": 159833,
+    "reference": null,
+    "status": "POSTED"
+  },
+  {
+    "cash_book_code": "KU",
+    "transaction_date": "2026-01-04",
+    "type": "EXPENSE",
+    "description": "Konsumsi Ibadah sermon gabungan",
+    "amount": 468000,
+    "reference": null,
+    "status": "POSTED"
+  }
+]

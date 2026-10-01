@@ -21,6 +21,38 @@ class AppTheme {
   static const Color badgeBlueBg = Color(0xFFE0F2FE);
   static const Color badgeBlueText = Color(0xFF0284C7);
 
+  // Landing page consolidated colors
+  static const Color primaryLight = Color(0xFF1D4ED8);      // lighter brand blue for accents
+  static const Color heroDarkerBlue = Color(0xFF081B33);    // darker hero header
+  static const Color heroGradientEnd = Color(0xFF0B2545);   // hero gradient bottom
+  static const Color darkSurface = Color(0xFF0F172A);       // slate 900 for cards/buttons
+  static const Color missionCardBlue = Color(0xFF0C3877);   // mission focus card
+  static const Color successGreen = Color(0xFF10B981);      // success/online
+  static const Color warningAmber = Color(0xFFD97706);      // warning/offline
+  static const Color featurePurple = Color(0xFF7C3AED);     // feature icon purple
+  static const Color featureGreen = Color(0xFF059669);      // feature icon green
+  static const Color featureAmber = Color(0xFFD97706);      // feature icon amber (reuse warning)
+  static const Color featureRed = Color(0xFFDC2626);        // feature icon red (reuse buttonRed)
+  static const Color featureSky = Color(0xFF0284C7);        // feature icon sky
+  static const Color darkRed = Color(0xFFB91C1C);           // dark red accent
+  static const Color lightBlueAccent = Color(0xFF38BDF8);   // light blue accent
+  static const Color surfaceSlate50 = Color(0xFFF8FAFC);    // slate 50 surface
+  static const Color surfaceSlate100 = Color(0xFFF1F5F9);   // slate 100 surface
+  static const Color slate300 = Color(0xFF94A3B8);          // slate 300
+  static const Color slate400 = Color(0xFF94A3B8);          // alias
+  static const Color slate200 = Color(0xFFCBD5E1);          // slate 200
+  static const Color slate700 = Color(0xFF334155);          // slate 700
+  static const Color green50 = Color(0xFFDCFCE7);           // success bg
+  static const Color green300 = Color(0xFF86EFAC);          // success dot
+  static const Color green600 = Color(0xFF16A34A);          // success text
+  static const Color green700 = Color(0xFF15803D);          // success text dark
+  static const Color amber50 = Color(0xFFFEF3C7);           // warning bg
+  static const Color amber200 = Color(0xFFFDE68A);          // warning dot
+  static const Color amber700 = Color(0xFFB45309);          // warning text
+  static const Color amber500 = Color(0xFFF59E0B);          // warning icon
+  static const Color blue300 = Color(0xFF93C5FD);           // blue accent light
+  static const Color overlayDark = Color(0xFF1E3A8A);       // overlay with alpha
+
   static PageTransitionsTheme get _transitions => const PageTransitionsTheme(
     builders: {
       TargetPlatform.android: _SmoothFadeSlidePageTransition(),

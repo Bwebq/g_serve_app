@@ -65,6 +65,8 @@ class WelcomeCard extends StatelessWidget {
               children: [
                 Text(
                   'Selamat datang,',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: Colors.white.withValues(alpha: 0.8),
                     fontSize: 14,
@@ -74,6 +76,8 @@ class WelcomeCard extends StatelessWidget {
                 const SizedBox(height: 4),
                 Text(
                   jemaat.nama,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 20,
@@ -84,6 +88,8 @@ class WelcomeCard extends StatelessWidget {
                 const SizedBox(height: 4),
                 Text(
                   jemaat.sektor,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: Colors.white.withValues(alpha: 0.8),
                     fontSize: 13,

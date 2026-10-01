@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/models.dart';
 import '../theme/app_theme.dart';
 import '../utils/animations.dart';
+import '../utils/date_helper.dart';
 
 // --- Helper: Show Detail Bottom Sheet Card ---
 void _showDetailBottomSheet(BuildContext context, {required Widget child}) {
@@ -53,10 +54,14 @@ class JadwalScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final sun0 = DateHelper.getNextOrCurrentSunday();
+    final sun1 = DateHelper.getSunday(1);
+    final fri = sun0.subtract(const Duration(days: 2));
+
     final listJadwal = [
       JadwalItem(
         kegiatan: 'Ibadah Minggu Pagi',
-        tanggal: 'Minggu, 10 Agustus 2025',
+        tanggal: DateHelper.formatFullDate(sun0),
         pukul: '09:00 WIB',
         lokasi: 'Gedung Gereja GKPI Cimahi',
         deskripsi:
@@ -65,7 +70,7 @@ class JadwalScreen extends StatelessWidget {
       ),
       JadwalItem(
         kegiatan: 'Ibadah Sekolah Minggu',
-        tanggal: 'Minggu, 10 Agustus 2025',
+        tanggal: DateHelper.formatFullDate(sun0),
         pukul: '07:30 WIB',
         lokasi: 'Ruang Sekolah Minggu',
         deskripsi:
@@ -74,7 +79,7 @@ class JadwalScreen extends StatelessWidget {
       ),
       JadwalItem(
         kegiatan: 'PA Sektor 1-5',
-        tanggal: 'Jumat, 15 Agustus 2025',
+        tanggal: DateHelper.formatFullDate(fri),
         pukul: '19:00 WIB',
         lokasi: 'Balai Warga Sektor 3',
         deskripsi:
@@ -82,12 +87,12 @@ class JadwalScreen extends StatelessWidget {
         kategori: 'Persekutuan',
       ),
       JadwalItem(
-        kegiatan: 'Ibadah Kemerdekaan RI',
-        tanggal: 'Minggu, 17 Agustus 2025',
-        pukul: '09:00 WIB',
+        kegiatan: 'Ibadah Pemuda & Remaja',
+        tanggal: DateHelper.formatFullDate(sun1),
+        pukul: '16:00 WIB',
         lokasi: 'Gedung Gereja GKPI Cimahi',
         deskripsi:
-            'Ibadah syukur HUT Kemerdekaan RI ke-80 bersama jemaat. Mengenakan pakaian nasional.',
+            'Ibadah khusus pemuda dan remaja dengan puji-pujian dan persekutuan yang bertumbuh.',
         kategori: 'Ibadah Khusus',
       ),
     ];
@@ -250,10 +255,14 @@ class WartaScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final sun0 = DateHelper.getNextOrCurrentSunday();
+    final sunPrev1 = DateHelper.getSunday(-1);
+    final sunPrev2 = DateHelper.getSunday(-2);
+
     final listWarta = [
       WartaItem(
-        edisi: 'Warta Jemaat 3 Agustus 2025',
-        keterangan: 'Edisi Minggu VIII',
+        edisi: 'Warta Jemaat ${DateHelper.formatDateOnly(sun0)}',
+        keterangan: 'Edisi Minggu Ini',
         ukuran: '2.4 MB',
         ringkasan:
             'Edisi minggu ini memuat khotbah tentang kasih kristus, laporan kegiatan sepekan, dan jadwal pelayanan.',
@@ -266,8 +275,8 @@ class WartaScreen extends StatelessWidget {
         ],
       ),
       WartaItem(
-        edisi: 'Warta Jemaat 27 Juli 2025',
-        keterangan: 'Edisi Minggu VII',
+        edisi: 'Warta Jemaat ${DateHelper.formatDateOnly(sunPrev1)}',
+        keterangan: 'Edisi Minggu Lalu',
         ukuran: '1.9 MB',
         ringkasan:
             'Edisi ini membahas topik keselamatan dan pembaruan hidup rohani serta info pendaftaran baptisan.',
@@ -279,14 +288,14 @@ class WartaScreen extends StatelessWidget {
         ],
       ),
       WartaItem(
-        edisi: 'Warta Jemaat 20 Juli 2025',
-        keterangan: 'Edisi Minggu VI',
+        edisi: 'Warta Jemaat ${DateHelper.formatDateOnly(sunPrev2)}',
+        keterangan: 'Edisi 2 Minggu Lalu',
         ukuran: '2.1 MB',
         ringkasan:
-            'Edisi pembuka bulan Agustus dengan tema syukur dan persiapan menyongsong HUT RI ke-80.',
+            'Edisi pembuka bulan ini dengan tema syukur dan pelayanan jemaat.',
         daftarIsi: [
           'Khotbah: Hidup Bersyukur',
-          'Rencana HUT Kemerdekaan',
+          'Rencana Program Gereja',
           'Laporan Kunjungan Pendeta',
           'Agenda Gotong Royong',
           'Info Camping Pemuda',
@@ -486,27 +495,37 @@ class PengumumanScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final sun0 = DateHelper.getNextOrCurrentSunday();
+    final nextSun = DateHelper.getSunday(1);
+    final sat0 = sun0.subtract(const Duration(days: 1));
+    final posting1 =
+        DateHelper.formatDateOnly(sun0.subtract(const Duration(days: 4)));
+    final posting2 =
+        DateHelper.formatDateOnly(sun0.subtract(const Duration(days: 8)));
+    final posting3 =
+        DateHelper.formatDateOnly(sun0.subtract(const Duration(days: 2)));
+
     final listPengumuman = [
       Pengumuman(
-        judul: 'Ibadah HUT GKPI ke-62',
+        judul: 'Ibadah Minggu Pagi & Pelayanan',
         deskripsi:
-            'Diselenggarakan Minggu, 3 Agustus 2025 pukul 09.00 WIB. Semua jemaat diundang hadir.',
+            'Diselenggarakan ${DateHelper.formatFullDate(sun0)} pukul 09.00 WIB. Semua jemaat diundang hadir.',
         tipe: TipePengumuman.penting,
-        tanggalInfo: 'Diposting 29 Juli 2025',
+        tanggalInfo: 'Diposting $posting1',
       ),
       Pengumuman(
         judul: 'Pendaftaran Baptisan & Sidi',
         deskripsi:
-            'Dibuka hingga 15 Agustus 2025. Formulir pendaftaran dapat diambil melalui sekretariat gereja.',
+            'Dibuka hingga ${DateHelper.formatFullDate(nextSun)}. Formulir pendaftaran dapat diambil melalui sekretariat gereja.',
         tipe: TipePengumuman.info,
-        tanggalInfo: 'Diposting 25 Juli 2025',
+        tanggalInfo: 'Diposting $posting2',
       ),
       Pengumuman(
         judul: 'Gotong Royong Kebersihan Gereja',
         deskripsi:
-            'Diadakan pada hari Sabtu, 9 Agustus 2025 mulai pukul 08.00 WIB. Harap membawa alat kebersihan.',
+            'Diadakan pada hari ${DateHelper.formatFullDate(sat0)} mulai pukul 08.00 WIB. Harap membawa alat kebersihan.',
         tipe: TipePengumuman.info,
-        tanggalInfo: 'Diposting 1 Agustus 2025',
+        tanggalInfo: 'Diposting $posting3',
       ),
     ];
 
@@ -572,11 +591,16 @@ class PengumumanScreen extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              Text(
-                                item.tanggalInfo,
-                                style: const TextStyle(
-                                  color: AppTheme.textGrey,
-                                  fontSize: 10,
+                              const SizedBox(width: 8),
+                              Flexible(
+                                child: Text(
+                                  item.tanggalInfo,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: const TextStyle(
+                                    color: AppTheme.textGrey,
+                                    fontSize: 10,
+                                  ),
                                 ),
                               ),
                             ],
@@ -643,9 +667,11 @@ void _showPengumumanDetail(BuildContext context, Pengumuman item) {
               ),
             ),
             const SizedBox(width: 10),
-            Text(
-              item.tanggalInfo,
-              style: const TextStyle(color: AppTheme.textGrey, fontSize: 11),
+            Expanded(
+              child: Text(
+                item.tanggalInfo,
+                style: const TextStyle(color: AppTheme.textGrey, fontSize: 11),
+              ),
             ),
           ],
         ),

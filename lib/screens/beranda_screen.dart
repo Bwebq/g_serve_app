@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/models.dart';
 import '../utils/animations.dart';
+import '../utils/date_helper.dart';
 import '../widgets/welcome_card.dart';
 import '../widgets/service_card.dart';
 import '../widgets/announcements_card.dart';
@@ -10,6 +11,9 @@ class BerandaScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final upcomingSunday = DateHelper.getNextOrCurrentSunday();
+    final nextSunday = DateHelper.getSunday(1);
+
     // Mock user data matching screenshot
     final jemaatMock = Jemaat(
       nama: 'Ester Simanjorang',
@@ -19,7 +23,7 @@ class BerandaScreen extends StatelessWidget {
 
     // Mock service data matching screenshot
     final ibadahMock = Ibadah(
-      tanggal: 'Minggu, 3 Agustus 2025',
+      tanggal: DateHelper.formatFullDate(upcomingSunday),
       judul: 'Ibadah Minggu Pagi',
       waktu: '09:00 WIB',
       lokasi: 'Gedung Gereja GKPI Cimahi',
@@ -54,14 +58,14 @@ class BerandaScreen extends StatelessWidget {
       Pengumuman(
         judul: 'Ibadah HUT GKPI ke-62',
         deskripsi:
-            'Diselenggarakan Minggu, 3 Agustus 2025 pukul 09.00 WIB. Semua jemaat diundang hadir.',
+            'Diselenggarakan ${DateHelper.formatFullDate(upcomingSunday)} pukul 09.00 WIB. Semua jemaat diundang hadir.',
         tipe: TipePengumuman.penting,
         tanggalInfo: '',
       ),
       Pengumuman(
         judul: 'Pendaftaran Baptisan & Sidi',
         deskripsi:
-            'Dibuka hingga 15 Agustus 2025. Formulir pendaftaran dapat diambil melalui sekretariat gereja.',
+            'Dibuka hingga ${DateHelper.formatFullDate(nextSunday)}. Formulir pendaftaran dapat diambil melalui sekretariat gereja.',
         tipe: TipePengumuman.info,
         tanggalInfo: '',
       ),

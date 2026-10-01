@@ -1,0 +1,1255 @@
+[
+  {
+    "family_number": "KK-S1-001",
+    "family_name": "Kel. Pnt (Em). Ruslina br. Situmorang (Ny Pnt Naibaho)",
+    "sector_code": "SEKTOR_1",
+    "address": "Jl. Kebon Kelapa  No. 21 RT. 01 RW. 01 Cimahi",
+    "phone": null
+  },
+  {
+    "family_number": "KK-S1-002",
+    "family_name": "Kel. Hesti br Sormin (Ny U Harianja)",
+    "sector_code": "SEKTOR_1",
+    "address": "Jl. Artileri B 146 Rt 09 RW 19, Cilame Permai",
+    "phone": null
+  },
+  {
+    "family_number": "KK-S1-003",
+    "family_name": "Kel. Ny (Pnt) Simarmata - Nurhaida br Gultom",
+    "sector_code": "SEKTOR_1",
+    "address": "Jl Raya Padalarang No.524 (seberang Puskesmas Padalarang)",
+    "phone": null
+  },
+  {
+    "family_number": "KK-S1-004",
+    "family_name": "Kel. Wasilan Tambunan",
+    "sector_code": "SEKTOR_1",
+    "address": "Jl. Pojok Utara 1 No. 134",
+    "phone": "089-892-14238"
+  },
+  {
+    "family_number": "KK-S1-005",
+    "family_name": "Kel. Taruli Pakpahan (Ny. DB Gultom)",
+    "sector_code": "SEKTOR_1",
+    "address": "Jl. Sangkuriang Barat III  No. 72 A",
+    "phone": "0877-8653-7376"
+  },
+  {
+    "family_number": "KK-S1-006",
+    "family_name": "Kel. Wilman Pasaoran Siagian",
+    "sector_code": "SEKTOR_1",
+    "address": "Jl. Kebon Manggu  Gg. Maryasik I RT.08/ RW.14 No. 60",
+    "phone": "0813-2223-7057"
+  },
+  {
+    "family_number": "KK-S1-007",
+    "family_name": "Kel. Saiful Gultom",
+    "sector_code": "SEKTOR_1",
+    "address": "Jl. Kebon Kelapa 1 No. 44",
+    "phone": "0812-2143-7390"
+  },
+  {
+    "family_number": "KK-S1-008",
+    "family_name": "Kel. Firman Midian Simbolon",
+    "sector_code": "SEKTOR_1",
+    "address": "Jl. Infantri B137/48 Desa Cilame Cilame Permai RT.04/RW.19",
+    "phone": "0817-7289-8515"
+  },
+  {
+    "family_number": "KK-S1-009",
+    "family_name": "Kel. Poltak Hasudungan Simarmata",
+    "sector_code": "SEKTOR_1",
+    "address": "Jl Raya Padalarang No.524 (seberang Puskesmas Padalarang)",
+    "phone": null
+  },
+  {
+    "family_number": "KK-S1-010",
+    "family_name": "Kel. Remika br Manullang",
+    "sector_code": "SEKTOR_1",
+    "address": "Jln. Terusan Trubus 54, RT 04 /02 Tanimulya, Ngamprah",
+    "phone": null
+  },
+  {
+    "family_number": "KK-S1-011",
+    "family_name": "Kel. Natanael Budiman Panggabean",
+    "sector_code": "SEKTOR_1",
+    "address": "Perum Cilame  Permai,  Jl. Trisula I F3",
+    "phone": "0813-9557-2136"
+  },
+  {
+    "family_number": "KK-S1-012",
+    "family_name": "Kel. T.P.H. Tambunan",
+    "sector_code": "SEKTOR_1",
+    "address": "Jl. Pojok Utara I,  Gg. Karya Muda, RT.04/RW.05 No. 134",
+    "phone": "0895-9114-8575, , 0812-2065-5730"
+  },
+  {
+    "family_number": "KK-S1-013",
+    "family_name": "Kel. Sabar Sitompul",
+    "sector_code": "SEKTOR_1",
+    "address": "Komp Veteran Cipageran  RT.05/06, No. 20",
+    "phone": "0851-0078-9803"
+  },
+  {
+    "family_number": "KK-S1-014",
+    "family_name": "Kel. Lince Yuti Siregar",
+    "sector_code": "SEKTOR_1",
+    "address": "Komp. Puri Indah Lestari Blok E7 30 Batujajar",
+    "phone": "0899-5630-055"
+  },
+  {
+    "family_number": "KK-S1-015",
+    "family_name": "Kel. Stefani Simamora",
+    "sector_code": "SEKTOR_1",
+    "address": "Cikandang RT 03/08, Cimareme",
+    "phone": "081313962470"
+  },
+  {
+    "family_number": "KK-S1-016",
+    "family_name": "Kel. Pnt. Oloan Valentino Sigiro",
+    "sector_code": "SEKTOR_1",
+    "address": "Jalan Botani 4 No. 14 Komplek Tani Mulya",
+    "phone": "0813-2264-0754"
+  },
+  {
+    "family_number": "KK-S1-017",
+    "family_name": "Kel. Ir. Remson Nainggolan",
+    "sector_code": "SEKTOR_1",
+    "address": "Perum G. Land Padalarang Valley  Cluster Gladiss No. 76",
+    "phone": "0878-2122-0044"
+  },
+  {
+    "family_number": "KK-S1-018",
+    "family_name": "Kel. Ny Pnt MP Sihombing Melvariana Evawanty br. Sibarani, SE",
+    "sector_code": "SEKTOR_1",
+    "address": "Bumi Pakusarakan D3  No. 2 RT 01/19 Ngamprah",
+    "phone": "0812-2436-6892"
+  },
+  {
+    "family_number": "KK-S1-019",
+    "family_name": "Kel. Ganda Parsaulian Manalu",
+    "sector_code": "SEKTOR_1",
+    "address": "Komplek Permata  Blok T4 No. E10",
+    "phone": "022-6623358/ , 0818-6347-97"
+  },
+  {
+    "family_number": "KK-S1-020",
+    "family_name": "Kel. Yodi Cahyadi Sitanggang",
+    "sector_code": "SEKTOR_1",
+    "address": "Perum Pesona Lembah Cidahu Blok E-25",
+    "phone": "0877-0509-3565"
+  },
+  {
+    "family_number": "KK-S1-021",
+    "family_name": "Kel. Pnt. Ferry Bonar Halomoan Naibaho",
+    "sector_code": "SEKTOR_1",
+    "address": "Jl. Kebon Kelapa No. 21 RT. 01 RW. 01 Cimahi",
+    "phone": null
+  },
+  {
+    "family_number": "KK-S1-022",
+    "family_name": "Kel. Amirudin Tambunan",
+    "sector_code": "SEKTOR_1",
+    "address": "Jl. Pojok Utara I, Gg. Karya Muda, RT.04/RW.05 No. 134",
+    "phone": null
+  },
+  {
+    "family_number": "KK-S1-023",
+    "family_name": "Kel. Bereston Manurung",
+    "sector_code": "SEKTOR_1",
+    "address": "Kp.Sudimampir RT 03/RW04. Desa Padalarang, Kec. Padalarang: kab Bandung Barat.",
+    "phone": "62 812-1421-1166"
+  },
+  {
+    "family_number": "KK-S1-024",
+    "family_name": "Kel. Firma Dhani Yakub Naibaho",
+    "sector_code": "SEKTOR_1",
+    "address": "Jl. Kebon Kelapa No. 21 RT. 01 RW. 01 Cimahi",
+    "phone": null
+  },
+  {
+    "family_number": "KK-S1-025",
+    "family_name": "Kel. Maruli Sipahutar",
+    "sector_code": "SEKTOR_1",
+    "address": "Jl. Pojok Utara No. 136 RT.04/RW.04  Kel. Setiamanah",
+    "phone": "0813-9516-2471"
+  },
+  {
+    "family_number": "KK-S1-026",
+    "family_name": "Kel. Salomo Panggabean",
+    "sector_code": "SEKTOR_1",
+    "address": "Pondok Bobojong Permai D3 Cipageran",
+    "phone": "0813-2119-5472"
+  },
+  {
+    "family_number": "KK-S1-027",
+    "family_name": "Kel. J. Tambunan",
+    "sector_code": "SEKTOR_1",
+    "address": "Jl. GG Manulang Kp Cicau N0 221 rt 01/02,PAdalarang",
+    "phone": "0812-1415-5596/087732770937"
+  },
+  {
+    "family_number": "KK-S1-028",
+    "family_name": "Kel. Rusmanto",
+    "sector_code": "SEKTOR_1",
+    "address": null,
+    "phone": null
+  },
+  {
+    "family_number": "KK-S1-029",
+    "family_name": "Kel. Hotben Lumban Gaol",
+    "sector_code": "SEKTOR_1",
+    "address": "Bukit Permata B5 No. 19",
+    "phone": "0895-3382-79724"
+  },
+  {
+    "family_number": "KK-S1-030",
+    "family_name": "Kel. Lerry Paradongan Harianja",
+    "sector_code": "SEKTOR_1",
+    "address": "Graha Bukit Raya III  Blok E-3 No. 18",
+    "phone": "0818-0952-5358"
+  },
+  {
+    "family_number": "KK-S1-031",
+    "family_name": "Kel. Rikmen Sitompul",
+    "sector_code": "SEKTOR_1",
+    "address": "Komp. CLV Cangkorah",
+    "phone": "0813-9480-0830"
+  },
+  {
+    "family_number": "KK-S1-032",
+    "family_name": "Kel. Wesly Loncar Malau",
+    "sector_code": "SEKTOR_1",
+    "address": "Perum Pangauban silih asih",
+    "phone": "0812-2119-005"
+  },
+  {
+    "family_number": "KK-S1-033",
+    "family_name": "Kel. Janni Hando Purba",
+    "sector_code": "SEKTOR_1",
+    "address": "Komplek Lembah Batujajar Village Blok E no. 23 Kp. Sindang Sari  Kel. Laksana Mekar",
+    "phone": "087725875885"
+  },
+  {
+    "family_number": "KK-S1-034",
+    "family_name": "Kel. Rijal Napitupulu",
+    "sector_code": "SEKTOR_1",
+    "address": "Perum Pengauban Silih Asih  S-38",
+    "phone": "0821-3053-8146"
+  },
+  {
+    "family_number": "KK-S1-035",
+    "family_name": "Kel. Andry Aryanto Hutapea",
+    "sector_code": "SEKTOR_1",
+    "address": "Nusa Cisangkan Permai Blok A No. 7A",
+    "phone": "0818-0923-9281"
+  },
+  {
+    "family_number": "KK-S1-036",
+    "family_name": "Kel. Pnt. Ramli Simbolon",
+    "sector_code": "SEKTOR_1",
+    "address": "Komplek Pemda  Blok L No. 125",
+    "phone": "0813-1645-6835"
+  },
+  {
+    "family_number": "KK-S1-037",
+    "family_name": "Kel. Pnt Manonggor Manik",
+    "sector_code": "SEKTOR_1",
+    "address": "Perum Pangauban Silih Asih  Blok L No. 10F Batujajar",
+    "phone": "0813-2100-9773"
+  },
+  {
+    "family_number": "KK-S1-038",
+    "family_name": "Kel. Pnt Ucok Sitinjak",
+    "sector_code": "SEKTOR_1",
+    "address": "Jl. Pojok Utara  Gg. Karya Muda I No. 63  RT.02 RW.05 Cimahi",
+    "phone": "0818-0222-0010"
+  },
+  {
+    "family_number": "KK-S1-039",
+    "family_name": "Kel. M.  Simamora",
+    "sector_code": "SEKTOR_1",
+    "address": "Desa Batujajar Barat  RT.03/ RW. 02 No. 41",
+    "phone": "0813-9507-1737"
+  },
+  {
+    "family_number": "KK-S1-040",
+    "family_name": "Kel. Novelina Hutabarat",
+    "sector_code": "SEKTOR_1",
+    "address": "Jl.K.H Usman Domiri 38",
+    "phone": "0822-4078-9439"
+  },
+  {
+    "family_number": "KK-S1-041",
+    "family_name": "Kel. Jhon Mauritz F.P. Nainggolan",
+    "sector_code": "SEKTOR_1",
+    "address": "Komp. Griya Kelapa Gading D8",
+    "phone": "0812-1212-0214"
+  },
+  {
+    "family_number": "KK-S1-042",
+    "family_name": "Kel. Edward Martin Sipahutar",
+    "sector_code": "SEKTOR_1",
+    "address": "Jl. Pojok Utara No. 136 RT.04/RW.04 Kelr. Setiamanah",
+    "phone": "0813-9516-2471"
+  },
+  {
+    "family_number": "KK-S1-043",
+    "family_name": "Kel. Immanuel Joshua Tegar Hasiholan  Simarmata",
+    "sector_code": "SEKTOR_1",
+    "address": "Tangerang",
+    "phone": null
+  },
+  {
+    "family_number": "KK-S1-044",
+    "family_name": "Kel. Conrad Aristein P. Siahaan",
+    "sector_code": "SEKTOR_1",
+    "address": "Perum Green Ville Gofur  Jl. Green Ville III  Kav. 71 N0. 29",
+    "phone": "0812-1547-7796"
+  },
+  {
+    "family_number": "KK-S1-045",
+    "family_name": "Kel. Hot Maruli Tua Sinurat",
+    "sector_code": "SEKTOR_1",
+    "address": "Perum Pengauban Silih Asih",
+    "phone": "0821-1666-5681"
+  },
+  {
+    "family_number": "KK-S1-046",
+    "family_name": "Kel. George Andrew H. Sihombing",
+    "sector_code": "SEKTOR_1",
+    "address": "Bumi Pakusarakan D3  No. 2 RT 01/19 Ngamprah",
+    "phone": "0812-8065-2188"
+  },
+  {
+    "family_number": "KK-S1-047",
+    "family_name": "Kel. Jadianto Lingga",
+    "sector_code": "SEKTOR_1",
+    "address": null,
+    "phone": null
+  },
+  {
+    "family_number": "KK-S1-048",
+    "family_name": "Kel. Daniel Cornelius Fernando Panggabean",
+    "sector_code": "SEKTOR_1",
+    "address": "Komp. Bojong Raya Jl. Bata Merah No. 48",
+    "phone": "0821-2724-1600"
+  },
+  {
+    "family_number": "KK-S1-049",
+    "family_name": "Kel. Beny Murdani Gultom",
+    "sector_code": "SEKTOR_1",
+    "address": "Perumahan Pangauban Silih Asih Blok R30",
+    "phone": "082240117104"
+  },
+  {
+    "family_number": "KK-S1-050",
+    "family_name": "Kel. Stepanus Gultom",
+    "sector_code": "SEKTOR_1",
+    "address": "Jl. Kebon Kelapa I No. 14 A",
+    "phone": "0856-2219-925"
+  },
+  {
+    "family_number": "KK-S2-001",
+    "family_name": "Kel. Nico Van Basten Siboro",
+    "sector_code": "SEKTOR_2",
+    "address": "Pekanbaru",
+    "phone": "0813-2441-0685"
+  },
+  {
+    "family_number": "KK-S2-002",
+    "family_name": "Kel. Firma Immanuel Roberto Manurung",
+    "sector_code": "SEKTOR_2",
+    "address": "Komp. Nusa Hijau A1 No.1",
+    "phone": "0813-8735-7320/ , 0870-2563-5929"
+  },
+  {
+    "family_number": "KK-S2-003",
+    "family_name": "Kel. Eslan Leon Hamonangan Harianja",
+    "sector_code": "SEKTOR_2",
+    "address": "Jl. Lurah Gg. Kebon Terong  RT.003/RW.003 No. 91 Cimahi",
+    "phone": "0821-2401-0278"
+  },
+  {
+    "family_number": "KK-S2-004",
+    "family_name": "Kel. Yusuf Ramdani Lumban Tobing",
+    "sector_code": "SEKTOR_2",
+    "address": "Komp. Nusa Hijau Permai  Blok H No. 18 Citeureup",
+    "phone": "0877-2255-9248/0888-9381-626"
+  },
+  {
+    "family_number": "KK-S2-005",
+    "family_name": "Kel. Ny. Tampubolon Pina Rovina",
+    "sector_code": "SEKTOR_2",
+    "address": "Jl. Kebon Kembang  RT.003/ RW.002 No. 146",
+    "phone": "0822-9545-2306"
+  },
+  {
+    "family_number": "KK-S2-006",
+    "family_name": "Kel. Harlan Brando Pakpahan",
+    "sector_code": "SEKTOR_2",
+    "address": "Griya Kamarung Indah No. 90 RT.05/04 Citeureup",
+    "phone": "0813-2439-1956"
+  },
+  {
+    "family_number": "KK-S2-007",
+    "family_name": "Kel. Saingot Martua Siregar",
+    "sector_code": "SEKTOR_2",
+    "address": "Jl. Leuwigoong No. 27  RT.01/05 Karang Mekar  Cimahi Tengah",
+    "phone": "0821-1707-7731"
+  },
+  {
+    "family_number": "KK-S2-008",
+    "family_name": "Kel. Dodo Tora Marale Simanjuntak",
+    "sector_code": "SEKTOR_2",
+    "address": "Jl. Kebon Kembang RT.01/ RW.02 N0. 25",
+    "phone": "0813-2266-3577"
+  },
+  {
+    "family_number": "KK-S2-009",
+    "family_name": "Kel. Janson Sinaga",
+    "sector_code": "SEKTOR_2",
+    "address": "Jl. Nusa Sari Utara III  No. 8",
+    "phone": "0813-2184-8849, +62 813-1366-3989"
+  },
+  {
+    "family_number": "KK-S2-010",
+    "family_name": "Kel. Juarno Sitompul",
+    "sector_code": "SEKTOR_2",
+    "address": "Jl. Pasar Atas  Gg. Margabakti 6  RT.05/RW.05 No. 77",
+    "phone": "022-6629016"
+  },
+  {
+    "family_number": "KK-S2-011",
+    "family_name": "Kel. Rendi Fauji Tampubolon",
+    "sector_code": "SEKTOR_2",
+    "address": "Jl. Kebon Kembang No. 146 RT.003/ Rw.002",
+    "phone": "0813-1231-1455"
+  },
+  {
+    "family_number": "KK-S2-012",
+    "family_name": "Kel. Panondang Tampubolon",
+    "sector_code": "SEKTOR_2",
+    "address": "Jl. Ibu Ganirah No. A30 RT.01/02 Kel. Cibeber Cimahi Selatan",
+    "phone": "0813-9504-9557"
+  },
+  {
+    "family_number": "KK-S2-013",
+    "family_name": "Kel. Yan Fieter S. P. Simorangkir",
+    "sector_code": "SEKTOR_2",
+    "address": "Perum Padaasih Regency  RT.03/ RW.08  Blok A No. 3",
+    "phone": "0813-2119-7403"
+  },
+  {
+    "family_number": "KK-S2-014",
+    "family_name": "Kel. Pnt. Tanda Parulian Manurung",
+    "sector_code": "SEKTOR_2",
+    "address": "GG Asem",
+    "phone": "0812-2428-7770"
+  },
+  {
+    "family_number": "KK-S2-015",
+    "family_name": "Kel. Ny. Gultom/ br. Tambunan",
+    "sector_code": "SEKTOR_2",
+    "address": "Jl. Kebon kembang 180/B",
+    "phone": null
+  },
+  {
+    "family_number": "KK-S2-016",
+    "family_name": "Kel. Pnt Richard Maruli Tua Gultom",
+    "sector_code": "SEKTOR_2",
+    "address": "Jl. Kebon kembang 180/B",
+    "phone": "0813-9558-8592"
+  },
+  {
+    "family_number": "KK-S2-017",
+    "family_name": "Kel. Pnt Hotma Lambas Roha Sihombing (Lumbantoruan)",
+    "sector_code": "SEKTOR_2",
+    "address": "Jl. Permana Gg. Tembus No. 58 Rt.06/ RW.06",
+    "phone": "0838-2140-2556/ , 0821-2697-6802"
+  },
+  {
+    "family_number": "KK-S2-018",
+    "family_name": "Kel. Irwan Bunturaja Simarmata",
+    "sector_code": "SEKTOR_2",
+    "address": "Jl. Gatot Subroto  Gg. Tauladan No. 44",
+    "phone": "0821-1615-6098"
+  },
+  {
+    "family_number": "KK-S2-019",
+    "family_name": "Kel. Venhard Saladin Simanungkalit",
+    "sector_code": "SEKTOR_2",
+    "address": "Jl. Ibu Ganirah Gg. Mustofa RT.4/3 Kel. Cibeber",
+    "phone": "0857-9706-0000"
+  },
+  {
+    "family_number": "KK-S2-020",
+    "family_name": "Kel. Ny. Simarmata/ T. br. Lumbanraja",
+    "sector_code": "SEKTOR_2",
+    "address": "Jl. Gatot Subroto  Gg. Tauladan No. 44",
+    "phone": "0821-1615-6098"
+  },
+  {
+    "family_number": "KK-S2-022",
+    "family_name": "Kel. Bermin S.M.T. Simbolon",
+    "sector_code": "SEKTOR_2",
+    "address": "Jl. Babakan Negla  No. 153/135B  RT.04/RW.03  Cimahi Tengah",
+    "phone": "0859-3008-0850"
+  },
+  {
+    "family_number": "KK-S2-023",
+    "family_name": "Kel. Tony Mangapul Simanungkalit",
+    "sector_code": "SEKTOR_2",
+    "address": "Komp. Puri Fajar  A-7/22  Cibeber",
+    "phone": "0857-2220-0333"
+  },
+  {
+    "family_number": "KK-S2-024",
+    "family_name": "Kel. Osman Gultom",
+    "sector_code": "SEKTOR_2",
+    "address": "Jl. H. Haris No. 173  Baros",
+    "phone": "0812-2159-1958"
+  },
+  {
+    "family_number": "KK-S2-025",
+    "family_name": "Kel. Nurmawaty, br. Sitompul",
+    "sector_code": "SEKTOR_2",
+    "address": "Komplek Permana Indah, Jl. Nyiruan I no. 11F",
+    "phone": null
+  },
+  {
+    "family_number": "KK-S2-026",
+    "family_name": "Kel. Lamson Sihaloho",
+    "sector_code": "SEKTOR_2",
+    "address": "Jl. Babakan Banten RT.02/RW.05 No. 121, Kamarung Citeureup",
+    "phone": "0812-1419-3297"
+  },
+  {
+    "family_number": "KK-S2-027",
+    "family_name": "Kel. Elina Netty Sinaga",
+    "sector_code": "SEKTOR_2",
+    "address": "Komp. Nusa Hijau A1",
+    "phone": "0821-1888-0053"
+  },
+  {
+    "family_number": "KK-S2-028",
+    "family_name": "Kel. Dodi Rolasta Simamora",
+    "sector_code": "SEKTOR_2",
+    "address": "Jl. Pasar Atas  Gg. Margabakti 6  RT.05/RW.05 No. 77",
+    "phone": "0822-1192-0296 / +62 812-2381-1140"
+  },
+  {
+    "family_number": "KK-S2-029",
+    "family_name": "Kel. Pnt Ferry Ronald Sahat Sibarani",
+    "sector_code": "SEKTOR_2",
+    "address": "Jl. Cihanjuang No. 257 Cimahi",
+    "phone": "0821-1357-3102"
+  },
+  {
+    "family_number": "KK-S2-030",
+    "family_name": "Kel. Diper Pakpahan",
+    "sector_code": "SEKTOR_2",
+    "address": "Kp. Giri Mekar Jaya RT.01/ RW.15 Padasuka Cimahi Tengah",
+    "phone": "0813-9468-4450"
+  },
+  {
+    "family_number": "KK-S2-031",
+    "family_name": "Kel. Pdt Aprida Marito br Hutapea, S.Th. M.M",
+    "sector_code": "SEKTOR_2",
+    "address": "Pastori GKPI Cimahi,  Jalan Lurah no. 252, Cimahi",
+    "phone": "081397578926"
+  },
+  {
+    "family_number": "KK-S3-001",
+    "family_name": "Kel. Drs. A. Lbn. Tungkup M.Pd",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl. Pesantren No. 157 RT.01/RW. 016",
+    "phone": "665-2570/ , 0821-1976-3386/+62 813-9403-7557"
+  },
+  {
+    "family_number": "KK-S3-002",
+    "family_name": "Kel. Darbin Sianturi",
+    "sector_code": "SEKTOR_3",
+    "address": "Cibuntu Selatan  RT.01/Rw. 07  Bandung Kulon",
+    "phone": "0813-1564-7553"
+  },
+  {
+    "family_number": "KK-S3-003",
+    "family_name": "Kel. Wilman Sihar  Pasaribu",
+    "sector_code": "SEKTOR_3",
+    "address": "Komp. Griya Cihanjuang C-1 Cihanjuang Tutugan",
+    "phone": "0813-7911-7116"
+  },
+  {
+    "family_number": "KK-S3-004",
+    "family_name": "Kel. Josep Berlin Gultom",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl. H. Nur 15  Prapatan Cihanjuang  Cimahi",
+    "phone": "0813-2027-6889/ , 0813-9445-8869"
+  },
+  {
+    "family_number": "KK-S3-005",
+    "family_name": "Kel. Lion Jonner Bazoka Sibuea",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl. Pesantren Permai V  No. 193  Cibabat - Cimahi",
+    "phone": "0812-6555-477"
+  },
+  {
+    "family_number": "KK-S3-006",
+    "family_name": "Kel. Thamrin Zatmiko Manurung",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl. Pesantren Gg. Mutisah No. 82",
+    "phone": "0813-2290-6569"
+  },
+  {
+    "family_number": "KK-S3-007",
+    "family_name": "Kel. Hendrik Gultom",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl. Pesantren VI  RT.07/ Rw.07",
+    "phone": "0813-8347-4449"
+  },
+  {
+    "family_number": "KK-S3-008",
+    "family_name": "Kel. Kristian Pande Raja Tua Silalahi",
+    "sector_code": "SEKTOR_3",
+    "address": null,
+    "phone": null
+  },
+  {
+    "family_number": "KK-S3-009",
+    "family_name": "Kel. Anita Samosir",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl. Budhi RT.07/RW.03, Sukaraja Cicendo",
+    "phone": "0852-2094-6488"
+  },
+  {
+    "family_number": "KK-S3-010",
+    "family_name": "Kel. Ronald Simanjuntak",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl. Karya IV no. 102 RT/RW 1/01 Kel Sukaraja (Belakang Tembok Stasion Cimindi)",
+    "phone": "0812-4859-5333"
+  },
+  {
+    "family_number": "KK-S3-011",
+    "family_name": "Kel. Jadiaman Rajagukguk",
+    "sector_code": "SEKTOR_3",
+    "address": "Gg. Mustofa 171 Rt. 3/6 Cibabat",
+    "phone": "665-9041/ , 0821-2107-1709"
+  },
+  {
+    "family_number": "KK-S3-012",
+    "family_name": "Kel. Pnt. Tigor Hasiholan Sipahutar",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl. Raya Cibabat Gg. Karya Bhakti V No. 108",
+    "phone": "0812-2253-507"
+  },
+  {
+    "family_number": "KK-S3-013",
+    "family_name": "Kel. Hermanto Lumban Toruan",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl. Bojong Koneng  No. 123",
+    "phone": "0812-2104-5133, +62 813-2187-1415:"
+  },
+  {
+    "family_number": "KK-S3-014",
+    "family_name": "Kel. Doni Maruli Manurung",
+    "sector_code": "SEKTOR_3",
+    "address": "jl. Babakan Cianjur Rt.001 / Rw. 007",
+    "phone": "062 878-7751-7375"
+  },
+  {
+    "family_number": "KK-S3-015",
+    "family_name": "Kel. Erika Lumban Gaol",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl. Babakan Cianjur  No. 103 RT.01/ RW.07",
+    "phone": "0853-2030-2230"
+  },
+  {
+    "family_number": "KK-S3-016",
+    "family_name": "Kel. Elseria Situmorang",
+    "sector_code": "SEKTOR_3",
+    "address": "Cijerah 2 Blok 8  Gg. Jambu N0. 26  RT.05/RW.12",
+    "phone": "0812-2056-6672"
+  },
+  {
+    "family_number": "KK-S3-017",
+    "family_name": "Kel. Ramlan Simbolon",
+    "sector_code": "SEKTOR_3",
+    "address": "Cijerah 2 Blok 8  Gg. Jambu N0. 26  RT.05/RW.12",
+    "phone": "0812-8692-9123"
+  },
+  {
+    "family_number": "KK-S3-018",
+    "family_name": "Kel. Nasip Junior Malau",
+    "sector_code": "SEKTOR_3",
+    "address": "Kp. Sukamaju N0. 75  Cigugur Tengah",
+    "phone": "0812-8476-7901"
+  },
+  {
+    "family_number": "KK-S3-019",
+    "family_name": "Kel. Intan br. Sitanggang",
+    "sector_code": "SEKTOR_3",
+    "address": "Kp. Sukamaju N0. 75",
+    "phone": "0821-1680-1313"
+  },
+  {
+    "family_number": "KK-S3-020",
+    "family_name": "Kel. Pnt David Wandes Sihaloho",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl. Rancamanyar",
+    "phone": "0852-6132-0456"
+  },
+  {
+    "family_number": "KK-S3-021",
+    "family_name": "Kel. Satti Situmorang",
+    "sector_code": "SEKTOR_3",
+    "address": "gg Tunggal Bakti IV no. 19 Cilember",
+    "phone": "0877-1405-7630"
+  },
+  {
+    "family_number": "KK-S3-022",
+    "family_name": "Kel. Pnt. Juner Limbong",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl. Mukador Dalam I RT.01/08 No. 48, Cimahi Selatan",
+    "phone": "0821-1615-0884"
+  },
+  {
+    "family_number": "KK-S3-023",
+    "family_name": "Kel. Donni Marudut Limbong",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl. Lembur Sawah RT.03/16  Kel. Utama",
+    "phone": "0813-7649-3281"
+  },
+  {
+    "family_number": "KK-S3-024",
+    "family_name": "Kel. David Moses Marajohan Limbong",
+    "sector_code": "SEKTOR_3",
+    "address": "Asrama Kipal RT.05/04 Campaka, Andir",
+    "phone": null
+  },
+  {
+    "family_number": "KK-S3-025",
+    "family_name": "Kel. Indra Wisnu Naiborhu",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl. Cisasawi Pesona Cihanjuang 3 No. 5",
+    "phone": "0813-1201-6446"
+  },
+  {
+    "family_number": "KK-S3-026",
+    "family_name": "Kel. Naek malau",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl. Cigugur Tengah RT.04/10",
+    "phone": "0813-2239-3291"
+  },
+  {
+    "family_number": "KK-S3-027",
+    "family_name": "Kel. Johnson L. Tobing",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl. Pesantren Permai  No. 157",
+    "phone": "0812-2398-7656"
+  },
+  {
+    "family_number": "KK-S3-028",
+    "family_name": "Kel. Hotman T.P. Sitanggang",
+    "sector_code": "SEKTOR_3",
+    "address": "Jalan Inspeksi Citarum No 68 Rt 2/Rw 13, Pameuntasan (rumah warna putih) KUTAWARINGIN, KAB. BANDUNG, JAWA BARAT, ID 40356",
+    "phone": "0821-2933-8920"
+  },
+  {
+    "family_number": "KK-S3-029",
+    "family_name": "Kel. Edison Simanjuntak",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl. Mukodar Tengah No. 64 RT. 06 RW. 07",
+    "phone": "0821-1146-9371"
+  },
+  {
+    "family_number": "KK-S3-030",
+    "family_name": "Kel. Ny. Pnt (Em) J.H.Hutabarat br. Pasaribu",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl. Cimindi Utara Gang. H. Said No. 123",
+    "phone": "0812-8760-0374"
+  },
+  {
+    "family_number": "KK-S3-031",
+    "family_name": "Kel. Delman Richard Manihim",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl. Budi No. 41 B  Bandung",
+    "phone": "813-7833-2835"
+  },
+  {
+    "family_number": "KK-S3-032",
+    "family_name": "Kel. Julkifli Sinaga",
+    "sector_code": "SEKTOR_3",
+    "address": "Taman Mutiara E5 No. 13",
+    "phone": "0822-1916-8400"
+  },
+  {
+    "family_number": "KK-S3-033",
+    "family_name": "Kel. Ober Marolop Limbong",
+    "sector_code": "SEKTOR_3",
+    "address": "Komp. RC Bali J Blok H12",
+    "phone": "0813-9423-6585"
+  },
+  {
+    "family_number": "KK-S3-034",
+    "family_name": "Kel. Oskar Simbolon",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl. Pesantren RT 01/07 Cibabat",
+    "phone": "0821-1583-8267"
+  },
+  {
+    "family_number": "KK-S3-035",
+    "family_name": "Kel. Pnt. (Em) R.M. Simorangkir",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl Cihanjuang gg Sumanta no. 25 Kelurahan Cibabat, Cimahi Utara",
+    "phone": "082115599429 (Doli ), 0812 2374 5338, +62 853-2474-8738 (Boru)"
+  },
+  {
+    "family_number": "KK-S3-036",
+    "family_name": "Kel. Radenas Silaban",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl. Budhi N0. 75",
+    "phone": "0822-1670-1449"
+  },
+  {
+    "family_number": "KK-S3-037",
+    "family_name": "Kel. Sopar Parlindungan Gultom",
+    "sector_code": "SEKTOR_3",
+    "address": "Duta Prima No. 2 Rt 4 RW 22 Jalan Pesantren, Cibabat",
+    "phone": "818636564"
+  },
+  {
+    "family_number": "KK-S3-038",
+    "family_name": "Kel. Daniel Yusak Pasaribu",
+    "sector_code": "SEKTOR_3",
+    "address": "Jalan Babakan Cianjur RT 04 RW 01 Kel. Cempaka kec Andir, Bandung",
+    "phone": "087823723814"
+  },
+  {
+    "family_number": "KK-S3-039",
+    "family_name": "Kel. Lindawati V Br Sijabat",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl Tunggal Bakti No. 47 RT 5 RW 6",
+    "phone": null
+  },
+  {
+    "family_number": "KK-S3-040",
+    "family_name": "Kel. Yunita Pasaribu (Ny Tulus H Situmorang)",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl Sentral Sirnarasa 3 No. 50 RT 02 RW 21, Cibabat",
+    "phone": null
+  },
+  {
+    "family_number": "KK-S3-041",
+    "family_name": "Kel. Andry Hasoloan Lumban Tobing",
+    "sector_code": "SEKTOR_3",
+    "address": "Jalan Pesantren Permai no. 157",
+    "phone": "085347097777"
+  },
+  {
+    "family_number": "KK-S3-042",
+    "family_name": "Kel. Jetro Tampubolon",
+    "sector_code": "SEKTOR_3",
+    "address": "Jalan Pesantren gg Mutisah (Info sudah pindah ke Sumedang)",
+    "phone": "0813-1251-1153"
+  },
+  {
+    "family_number": "KK-S3-043",
+    "family_name": "Kel. Kristian Pangaribuan",
+    "sector_code": "SEKTOR_3",
+    "address": "Perum Cimahi City View Blok C/20 Padaasih",
+    "phone": "0815-7145-995"
+  },
+  {
+    "family_number": "KK-S3-044",
+    "family_name": "Kel. Luhut Samuel Julius Nainggolan (lumbatungkup)",
+    "sector_code": "SEKTOR_3",
+    "address": "Jalan Pesantren No. 157 T/RW 01/16, Cibabat Cimahi Utara",
+    "phone": "082219232808"
+  },
+  {
+    "family_number": "KK-S3-045",
+    "family_name": "Kel. Josua Pandapotan Naibaho",
+    "sector_code": "SEKTOR_3",
+    "address": "Jalan Babakan Ciparay Gg Misbah RT 12/RW 02 kelurahan SUkahaji Kecamatan Babakan Ciparay",
+    "phone": "087794805050"
+  },
+  {
+    "family_number": "KK-S3-046",
+    "family_name": "Kel. Erikson Sitanggang",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl. Raya Dayeuh Kolot RT 04 RW 12 no 94",
+    "phone": "081394839399"
+  },
+  {
+    "family_number": "KK-S3-047",
+    "family_name": "Kel. Bonni M Limbong",
+    "sector_code": "SEKTOR_3",
+    "address": "bojong koneng",
+    "phone": null
+  },
+  {
+    "family_number": "KK-S3-048",
+    "family_name": "Kel. Lumumba Pakpahan",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl Pesantren GG Mutisah no 21",
+    "phone": null
+  },
+  {
+    "family_number": "KK-S3-049",
+    "family_name": "Kel. Jekson Holmes Marpaung",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl. Raya Nanjung RT.06/11 Marga Asih",
+    "phone": "0853-8660-7260"
+  },
+  {
+    "family_number": "KK-S3-050",
+    "family_name": "Kel. Dalan Margomgom Sirait",
+    "sector_code": "SEKTOR_3",
+    "address": "Nanjung, Margaasih",
+    "phone": "0813-8299-7371, 0812-2328-3332"
+  },
+  {
+    "family_number": "KK-S3-051",
+    "family_name": "Kel. Toyama Durahman Malau",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl. Jati Nanjung N0. 20 RT.01/ RW. 01 Margaasih",
+    "phone": "0812-2208-8793"
+  },
+  {
+    "family_number": "KK-S3-052",
+    "family_name": "Kel. Jalahan Malau",
+    "sector_code": "SEKTOR_3",
+    "address": "Perumahan Pondok Indah Sukamukti 1 Tahap 3 Bonsai 1 No. 2 Katapang",
+    "phone": "0812-2420-4002"
+  },
+  {
+    "family_number": "KK-S3-053",
+    "family_name": "Kel. Ny.Tampubolon, Pnt (Em) H. br. Tambunan",
+    "sector_code": "SEKTOR_3",
+    "address": "Perum Cinangsi Cililin, Pindah Ke Cibiru/Cibiru",
+    "phone": null
+  },
+  {
+    "family_number": "KK-S3-054",
+    "family_name": "Kel. Kartim Br Harianja",
+    "sector_code": "SEKTOR_3",
+    "address": "Bumi Prima Garden Blok F no. 27, Pesantren",
+    "phone": null
+  },
+  {
+    "family_number": "KK-S4-001",
+    "family_name": "Kel. Davy Mangara Tua Sitompul",
+    "sector_code": "SEKTOR_4",
+    "address": "Jl. Jati Utara  Blok W3 No. 11  Marga Asih",
+    "phone": "0812-9166-5816"
+  },
+  {
+    "family_number": "KK-S4-002",
+    "family_name": "Kel. Ny Panggabean E.H. br. Sitompul",
+    "sector_code": "SEKTOR_4",
+    "address": "Jl. Kihapit Barat Komp. Leuwigajah Jaya  No. 252",
+    "phone": "0881-2042-381"
+  },
+  {
+    "family_number": "KK-S4-003",
+    "family_name": "Kel. Moses Marpaung",
+    "sector_code": "SEKTOR_4",
+    "address": "Jl. Kihapit Barat Komp. Leuwigajah Jaya  No. 252",
+    "phone": "0821-2912-2810"
+  },
+  {
+    "family_number": "KK-S4-004",
+    "family_name": "Kel. Manutun Limbong",
+    "sector_code": "SEKTOR_4",
+    "address": "Jl. Damar III B. 165  Dimensi Lagadar  Marga Asih",
+    "phone": "0813-1189-1353"
+  },
+  {
+    "family_number": "KK-S4-005",
+    "family_name": "Kel. Anggiat Silalahi (Op Sabar)",
+    "sector_code": "SEKTOR_4",
+    "address": "Sihapit Timur  RT.08/ RW.08 No. 57A",
+    "phone": "0822-1870-5050"
+  },
+  {
+    "family_number": "KK-S4-006",
+    "family_name": "Kel. Jahoras Malau",
+    "sector_code": "SEKTOR_4",
+    "address": "Komp. Alam Sanggar Indah Blok Pinus N0. 21  Ciraden",
+    "phone": "0852-1491-0290"
+  },
+  {
+    "family_number": "KK-S4-007",
+    "family_name": "Kel. Juni Lamsihar Purba",
+    "sector_code": "SEKTOR_4",
+    "address": "Kp. Cigugur  RT.01/03 No. 27",
+    "phone": "0813-7774-4626"
+  },
+  {
+    "family_number": "KK-S4-008",
+    "family_name": "Kel. Maryati Naenggolan (Ny Simanjuntak)",
+    "sector_code": "SEKTOR_4",
+    "address": "GG Warga RT/RW  02/09 no 102 Cihapit Barat kel.Lewigajah",
+    "phone": null
+  },
+  {
+    "family_number": "KK-S4-009",
+    "family_name": "Kel. Daulat Panggabean",
+    "sector_code": "SEKTOR_4",
+    "address": "Kp. Bunisari, Desa Pataruman,  Kec. Cihamplas, Bandung Barat",
+    "phone": "0813-2160-1374"
+  },
+  {
+    "family_number": "KK-S4-010",
+    "family_name": "Kel. Ryan L. Ferdinant Siregar",
+    "sector_code": "SEKTOR_4",
+    "address": "Jl. Akasia IV No. 80A Lagadar Marga Asih",
+    "phone": "0896-5508-9525"
+  },
+  {
+    "family_number": "KK-S4-011",
+    "family_name": "Kel. Burhanudin Simamora",
+    "sector_code": "SEKTOR_4",
+    "address": "komp BCI 2 blok J-10 no 47, Cipatik",
+    "phone": "0895421723434"
+  },
+  {
+    "family_number": "KK-S4-012",
+    "family_name": "Kel. Sabar Manaon Sitompul",
+    "sector_code": "SEKTOR_4",
+    "address": "Pesona Margaasih Blok C3, No. 15, Margaasih",
+    "phone": null
+  },
+  {
+    "family_number": "KK-S4-013",
+    "family_name": "Kel. Novransis Lumban Tungkup",
+    "sector_code": "SEKTOR_4",
+    "address": "Kp. Cipatat RT 01/RW 11, Marga Asih",
+    "phone": "0821-1565-9425"
+  },
+  {
+    "family_number": "KK-S4-014",
+    "family_name": "Kel. Sumardiman Simanjuntak",
+    "sector_code": "SEKTOR_4",
+    "address": "Komp. Pesona Marga Asih Blok G1 No. 21 RT.02/10 Nanjung",
+    "phone": "0813-2034-2008"
+  },
+  {
+    "family_number": "KK-S4-015",
+    "family_name": "Kel. Pnt. Suhardiman Samosir",
+    "sector_code": "SEKTOR_4",
+    "address": "Jl. Kerkof RT.05/ RW.05",
+    "phone": "0812-8522-9113"
+  },
+  {
+    "family_number": "KK-S4-016",
+    "family_name": "Kel. Juhara Hasiholan Manalu",
+    "sector_code": "SEKTOR_4",
+    "address": "Kp. Ciraden Desa Jelegong  Kec. Kutawaringin",
+    "phone": "0895-1566-8302"
+  },
+  {
+    "family_number": "KK-S4-017",
+    "family_name": "Kel. Siti Pardamean br. Tarihoran",
+    "sector_code": "SEKTOR_4",
+    "address": "Kp. Ciraden",
+    "phone": "0895-1566-8302"
+  },
+  {
+    "family_number": "KK-S4-018",
+    "family_name": "Kel. Pnt. (Em) Ramses Sianturi",
+    "sector_code": "SEKTOR_4",
+    "address": "Komp Margaasih, Jalan Gurame 2 no. 18 Margaasih",
+    "phone": "0813-2111-1057"
+  },
+  {
+    "family_number": "KK-S4-019",
+    "family_name": "Kel. Pnt. Alisarifin Simbolon",
+    "sector_code": "SEKTOR_4",
+    "address": "Perum Pondok Cipta Mas Blok D2 No. 8",
+    "phone": "0813-2124-3976"
+  },
+  {
+    "family_number": "KK-S4-020",
+    "family_name": "Kel. Darusman Hamonangan Panggabean",
+    "sector_code": "SEKTOR_4",
+    "address": "Pondok Cipta Mas C3 No. 2, Leuwihgajah",
+    "phone": "022-6670417, 0813-9701-5767"
+  },
+  {
+    "family_number": "KK-S4-021",
+    "family_name": "Kel. Kennedy Simbolon",
+    "sector_code": "SEKTOR_4",
+    "address": "Jl. Kihapit Timur RT.004/008 Leuwigajah",
+    "phone": "0857-2243-2326"
+  },
+  {
+    "family_number": "KK-S4-022",
+    "family_name": "Kel. Patar Gultom",
+    "sector_code": "SEKTOR_4",
+    "address": "Perum  Alam Sanggar Indah Citapen Cihamplas  Cluster Kenari Raya No. 1",
+    "phone": "0813-1224-4411"
+  },
+  {
+    "family_number": "KK-S4-023",
+    "family_name": "Kel. Dortus Parmonangan Ritonga",
+    "sector_code": "SEKTOR_4",
+    "address": "Perumaham Alam Sanggar Indah Jl. Pinus 4 no 15, desa Citapen, kab. Cihampelas, KBB",
+    "phone": "08221857 7339"
+  },
+  {
+    "family_number": "KK-S4-024",
+    "family_name": "Kel. Elison Kudadiri",
+    "sector_code": "SEKTOR_4",
+    "address": "Perumahan Alam Sanggar Indah Cemara Raya no. 01 desa Citapenbkec cihampelas",
+    "phone": "081296640492"
+  },
+  {
+    "family_number": "KK-S4-025",
+    "family_name": "Kel. Dany Hasiando Panggabean",
+    "sector_code": "SEKTOR_4",
+    "address": "Pondok Cipta Mas C3 No. 2, Leuwihgajah",
+    "phone": "085352585757"
+  },
+  {
+    "family_number": "KK-S4-026",
+    "family_name": "Kel. Juken Sihotang",
+    "sector_code": "SEKTOR_4",
+    "address": "Perum Bumi Putra Indah, Cipatik",
+    "phone": "0882000264696"
+  },
+  {
+    "family_number": "KK-S4-027",
+    "family_name": "Kel. Hasiholan Sitinjak",
+    "sector_code": "SEKTOR_4",
+    "address": "Kp Suka wangi RT 002 RW 005 Desa Jelegong Kec: Kutawaringin Kab Bandung",
+    "phone": "082132112457"
+  },
+  {
+    "family_number": "KK-S4-028",
+    "family_name": "Kel. Wadi Wanto Situmorang",
+    "sector_code": "SEKTOR_4",
+    "address": "Griya Pataruman no 1A RT/RW 05/10, Cipatik",
+    "phone": "0812-6329-6349"
+  },
+  {
+    "family_number": "KK-S4-163",
+    "family_name": "Kel. Total",
+    "sector_code": "SEKTOR_4",
+    "address": null,
+    "phone": null
+  },
+  {
+    "family_number": "KK-S1-001",
+    "family_name": "Kel. Ny.Tampubolon, Pnt (Em) H. br. Tambunan",
+    "sector_code": "SEKTOR_1",
+    "address": null,
+    "phone": null
+  },
+  {
+    "family_number": "KK-S1-010",
+    "family_name": "Kel. Edward Martin Sipahutar",
+    "sector_code": "SEKTOR_1",
+    "address": null,
+    "phone": null
+  },
+  {
+    "family_number": "KK-S1-031",
+    "family_name": "Kel. Immanuel Joshua Tegar Hasiholan  Simarmata",
+    "sector_code": "SEKTOR_1",
+    "address": null,
+    "phone": null
+  },
+  {
+    "family_number": "KK-S1-037",
+    "family_name": "Kel. George Andrew H. Sihombing",
+    "sector_code": "SEKTOR_1",
+    "address": null,
+    "phone": null
+  },
+  {
+    "family_number": "KK-S1-040",
+    "family_name": "Kel. Martua Sitanggang",
+    "sector_code": "SEKTOR_1",
+    "address": null,
+    "phone": null
+  },
+  {
+    "family_number": "KK-S1-051",
+    "family_name": "Kel. Stefani Simamora",
+    "sector_code": "SEKTOR_1",
+    "address": null,
+    "phone": null
+  },
+  {
+    "family_number": "KK-S2-001",
+    "family_name": "Kel. Nico Van Basten Siboro",
+    "sector_code": "SEKTOR_2",
+    "address": null,
+    "phone": null
+  },
+  {
+    "family_number": "KK-S2-007",
+    "family_name": "Kel. Harlan Brando pakpahan",
+    "sector_code": "SEKTOR_2",
+    "address": null,
+    "phone": null
+  },
+  {
+    "family_number": "KK-S2-017",
+    "family_name": "Kel. Ny. Gultom/ br. Tambunan",
+    "sector_code": "SEKTOR_2",
+    "address": null,
+    "phone": null
+  },
+  {
+    "family_number": "KK-S2-032",
+    "family_name": "Kel. Dodi Rolasta Simamora",
+    "sector_code": "SEKTOR_2",
+    "address": null,
+    "phone": null
+  },
+  {
+    "family_number": "KK-S3-045",
+    "family_name": "Kel. Jetro Tampubolon",
+    "sector_code": "SEKTOR_3",
+    "address": null,
+    "phone": null
+  },
+  {
+    "family_number": "KK-S3-017",
+    "family_name": "Kel. Ramlan Simbolon",
+    "sector_code": "SEKTOR_3",
+    "address": null,
+    "phone": null
+  },
+  {
+    "family_number": "KK-S3-003",
+    "family_name": "Kel. Wilman Sihar  Pasaribu",
+    "sector_code": "SEKTOR_3",
+    "address": "Komp. Griya Cihanjuang  C-1  Cihanjuang Tutugan",
+    "phone": "0813-7911-7116"
+  },
+  {
+    "family_number": "KK-S3-006",
+    "family_name": "Kel. Thamrin Zatmiko Manurung",
+    "sector_code": "SEKTOR_3",
+    "address": "Jl. Pesantren  Gg. Mutisah No. 82",
+    "phone": "0813-2290-6569"
+  },
+  {
+    "family_number": "KK-S4-031",
+    "family_name": "Kel. Dany Hasiando Panggabean",
+    "sector_code": "SEKTOR_4",
+    "address": null,
+    "phone": null
+  },
+  {
+    "family_number": "KK-S4-020",
+    "family_name": "Kel. Sesto Sumurung Halomoan Sianturi",
+    "sector_code": "SEKTOR_4",
+    "address": null,
+    "phone": null
+  }
+]

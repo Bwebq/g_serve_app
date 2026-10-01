@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- G-SERVE custom blue splash screen background with app logo -->
+<!-- G-SERVE solid blue splash screen background for smooth transition to animated Flutter splash -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@color/splash_bg" />
-
-    <item>
-        <bitmap
-            android:gravity="center"
-            android:src="@drawable/splash_logo" />
-    </item>
 </layer-list>

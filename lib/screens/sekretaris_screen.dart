@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import '../models/models.dart';
+import '../services/api_service.dart';
 import '../theme/app_theme.dart';
 import '../utils/animations.dart';
+import '../utils/date_helper.dart';
 
 enum _SekretarisTab { jemaat, inventaris, wartaJadwal }
 
@@ -15,47 +17,50 @@ class SekretarisScreen extends StatefulWidget {
 }
 
 class _SekretarisScreenState extends State<SekretarisScreen> {
-  static const _bulanNama = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'Mei',
-    'Jun',
-    'Jul',
-    'Agu',
-    'Sep',
-    'Okt',
-    'Nov',
-    'Des',
-  ];
-
-  static const _bulanPanjang = [
-    'Januari',
-    'Februari',
-    'Maret',
-    'April',
-    'Mei',
-    'Juni',
-    'Juli',
-    'Agustus',
-    'September',
-    'Oktober',
-    'November',
-    'Desember',
-  ];
-
-  static const _hariNama = ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'];
+  static const List<String> _bulanNama = DateHelper.bulanNamaShort;
 
   DateTime get _now => DateTime.now();
-  String get _tanggalHariIni => _fmtTanggalRaw(_now);
-  String get _bulanIni => '${_bulanPanjang[_now.month - 1]} ${_now.year}';
-
-  static String _fmtTanggalRaw(DateTime d) =>
-      '${_hariNama[d.weekday - 1]}, ${d.day} ${_bulanNama[d.month - 1]} ${d.year}';
+  String get _tanggalHariIni => DateHelper.formatShortDate(_now);
+  String get _bulanIni => DateHelper.formatMonthYear(_now);
 
   // Active Tab state
   _SekretarisTab _activeTab = _SekretarisTab.jemaat;
+
+  // Backend Sync State
+  bool _isLoadingBackend = false;
+  bool _isBackendConnected = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadDataFromBackend();
+  }
+
+  Future<void> _loadDataFromBackend() async {
+    setState(() => _isLoadingBackend = true);
+    try {
+      final members = await ApiService.instance.fetchMembers();
+      if (members.isNotEmpty && mounted) {
+        setState(() {
+          _listJemaat.clear();
+          _listJemaat.addAll(members);
+          _isBackendConnected = true;
+        });
+      }
+      final assets = await ApiService.instance.fetchAssets();
+      if (assets.isNotEmpty && mounted) {
+        setState(() {
+          _listInventaris.clear();
+          _listInventaris.addAll(assets);
+          _isBackendConnected = true;
+        });
+      }
+    } catch (e) {
+      debugPrint('[SekretarisScreen] Sync error: $e');
+    } finally {
+      if (mounted) setState(() => _isLoadingBackend = false);
+    }
+  }
 
   // Search & Filters state for Data Jemaat
   final TextEditingController _searchController = TextEditingController();
@@ -66,12 +71,16 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
   final TextEditingController _inventarisSearchController =
       TextEditingController();
   String _selectedKondisiFilter = 'Semua Kondisi';
+  String _selectedDivisiFilter = 'Semua Divisi';
+
+  // View Mode: 'jemaat' (Daftar Individu) vs 'keluarga' (Kartu Keluarga Digital)
+  String _viewModeJemaat = 'jemaat';
 
   // Warta & Jadwal state
   JadwalPelayanDetail? _selectedJadwal;
   bool _showWartaPratinjau = false;
 
-  // Initial Mock Jemaat Data
+  // Initial Mock Jemaat Data with Family Classification (GKPI Cimahi)
   final List<JemaatMember> _listJemaat = [
     JemaatMember(
       id: '1',
@@ -83,6 +92,14 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
       isBaptis: true,
       isSidi: true,
       isNikah: true,
+      noKk: 'KK-001',
+      namaKeluarga: 'Keluarga Bpk. Martua Sirait / Br. Hutabarat',
+      hubunganKeluarga: 'Kepala Keluarga',
+      isKepalaKeluarga: true,
+      telepon: '0813-4455-6677',
+      alamat: 'Jl. Kolonel Masturi No. 88, Cimahi',
+      pekerjaan: 'Wiraswasta',
+      jenisKelamin: 'L',
     ),
     JemaatMember(
       id: '2',
@@ -94,61 +111,14 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
       isBaptis: true,
       isSidi: true,
       isNikah: true,
-    ),
-    JemaatMember(
-      id: '3',
-      noRegister: 'GKPI-003',
-      namaLengkap: 'Pdt. Saut Nainggolan',
-      sektor: 'Sektor 2',
-      status: 'Aktif',
-      tglLahir: '05 Nov 1972',
-      isBaptis: true,
-      isSidi: true,
-      isNikah: true,
-    ),
-    JemaatMember(
-      id: '4',
-      noRegister: 'GKPI-004',
-      namaLengkap: 'Ester Simanjorang',
-      sektor: 'Sektor 5',
-      status: 'Aktif',
-      tglLahir: '18 Agu 1998',
-      isBaptis: true,
-      isSidi: true,
-      isNikah: false,
-    ),
-    JemaatMember(
-      id: '5',
-      noRegister: 'GKPI-005',
-      namaLengkap: 'St. H. Manurung',
-      sektor: 'Sektor 3',
-      status: 'Pindah',
-      tglLahir: '12 Mei 1960',
-      isBaptis: true,
-      isSidi: true,
-      isNikah: true,
-    ),
-    JemaatMember(
-      id: '6',
-      noRegister: 'GKPI-006',
-      namaLengkap: 'Alm. O. Nainggolan',
-      sektor: 'Sektor 4',
-      status: 'Meninggal',
-      tglLahir: '01 Jan 1945',
-      isBaptis: true,
-      isSidi: true,
-      isNikah: true,
-    ),
-    JemaatMember(
-      id: '7',
-      noRegister: 'GKPI-007',
-      namaLengkap: 'Ev. Tiur Simbolon',
-      sektor: 'Sektor 2',
-      status: 'Aktif',
-      tglLahir: '10 Feb 1980',
-      isBaptis: true,
-      isSidi: true,
-      isNikah: true,
+      noKk: 'KK-001',
+      namaKeluarga: 'Keluarga Bpk. Martua Sirait / Br. Hutabarat',
+      hubunganKeluarga: 'Istri',
+      isKepalaKeluarga: false,
+      telepon: '0813-4455-6678',
+      alamat: 'Jl. Kolonel Masturi No. 88, Cimahi',
+      pekerjaan: 'PNS',
+      jenisKelamin: 'P',
     ),
     JemaatMember(
       id: '8',
@@ -160,28 +130,52 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
       isBaptis: true,
       isSidi: true,
       isNikah: false,
+      noKk: 'KK-001',
+      namaKeluarga: 'Keluarga Bpk. Martua Sirait / Br. Hutabarat',
+      hubunganKeluarga: 'Anak',
+      isKepalaKeluarga: false,
+      telepon: '0821-9876-5432',
+      alamat: 'Jl. Kolonel Masturi No. 88, Cimahi',
+      pekerjaan: 'IT Specialist',
+      jenisKelamin: 'L',
     ),
     JemaatMember(
-      id: '9',
-      noRegister: 'GKPI-009',
-      namaLengkap: 'Marlina Tampubolon',
-      sektor: 'Sektor 3',
+      id: '3',
+      noRegister: 'GKPI-003',
+      namaLengkap: 'Pdt. Saut Nainggolan',
+      sektor: 'Sektor 2',
       status: 'Aktif',
-      tglLahir: '14 Sep 1992',
+      tglLahir: '05 Nov 1972',
       isBaptis: true,
       isSidi: true,
       isNikah: true,
+      noKk: 'KK-002',
+      namaKeluarga: 'Keluarga Pdt. Saut Nainggolan / Br. Simbolon',
+      hubunganKeluarga: 'Kepala Keluarga',
+      isKepalaKeluarga: true,
+      telepon: '0812-1122-3344',
+      alamat: 'Jl. Ibu Sangki No. 1, Cimahi',
+      pekerjaan: 'Pendeta Resort',
+      jenisKelamin: 'L',
     ),
     JemaatMember(
-      id: '10',
-      noRegister: 'GKPI-010',
-      namaLengkap: 'Drs. Haposan Situmorang',
-      sektor: 'Sektor 4',
+      id: '7',
+      noRegister: 'GKPI-007',
+      namaLengkap: 'Ev. Tiur Simbolon',
+      sektor: 'Sektor 2',
       status: 'Aktif',
-      tglLahir: '08 Mar 1967',
+      tglLahir: '10 Feb 1980',
       isBaptis: true,
       isSidi: true,
       isNikah: true,
+      noKk: 'KK-002',
+      namaKeluarga: 'Keluarga Pdt. Saut Nainggolan / Br. Simbolon',
+      hubunganKeluarga: 'Istri',
+      isKepalaKeluarga: false,
+      telepon: '0812-1122-3355',
+      alamat: 'Jl. Ibu Sangki No. 1, Cimahi',
+      pekerjaan: 'Guru Agama',
+      jenisKelamin: 'P',
     ),
     JemaatMember(
       id: '11',
@@ -193,6 +187,33 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
       isBaptis: true,
       isSidi: true,
       isNikah: false,
+      noKk: 'KK-002',
+      namaKeluarga: 'Keluarga Pdt. Saut Nainggolan / Br. Simbolon',
+      hubunganKeluarga: 'Anak',
+      isKepalaKeluarga: false,
+      telepon: '0812-1122-3366',
+      alamat: 'Jl. Ibu Sangki No. 1, Cimahi',
+      pekerjaan: 'Mahasiswa',
+      jenisKelamin: 'L',
+    ),
+    JemaatMember(
+      id: '4',
+      noRegister: 'GKPI-004',
+      namaLengkap: 'Ester Simanjorang',
+      sektor: 'Sektor 5',
+      status: 'Aktif',
+      tglLahir: '18 Agu 1998',
+      isBaptis: true,
+      isSidi: true,
+      isNikah: false,
+      noKk: 'KK-003',
+      namaKeluarga: 'Keluarga Simanjorang',
+      hubunganKeluarga: 'Kepala Keluarga',
+      isKepalaKeluarga: true,
+      telepon: '0857-1234-5678',
+      alamat: 'Komp. Puri Cipageran Indah Blok H-12, Cimahi',
+      pekerjaan: 'Arsitek',
+      jenisKelamin: 'P',
     ),
     JemaatMember(
       id: '12',
@@ -204,116 +225,278 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
       isBaptis: true,
       isSidi: true,
       isNikah: false,
+      noKk: 'KK-003',
+      namaKeluarga: 'Keluarga Simanjorang',
+      hubunganKeluarga: 'Anak',
+      isKepalaKeluarga: false,
+      telepon: '0857-1234-5679',
+      alamat: 'Komp. Puri Cipageran Indah Blok H-12, Cimahi',
+      pekerjaan: 'Pelajar',
+      jenisKelamin: 'P',
+    ),
+    JemaatMember(
+      id: '5',
+      noRegister: 'GKPI-005',
+      namaLengkap: 'St. H. Manurung',
+      sektor: 'Sektor 3',
+      status: 'Pindah',
+      tglLahir: '12 Mei 1960',
+      isBaptis: true,
+      isSidi: true,
+      isNikah: true,
+      noKk: 'KK-004',
+      namaKeluarga: 'Keluarga St. H. Manurung',
+      hubunganKeluarga: 'Kepala Keluarga',
+      isKepalaKeluarga: true,
+      telepon: '0813-9988-7766',
+      alamat: 'Jl. Cisangkan No. 15, Cimahi',
+      pekerjaan: 'Pensiunan',
+      jenisKelamin: 'L',
+    ),
+    JemaatMember(
+      id: '9',
+      noRegister: 'GKPI-009',
+      namaLengkap: 'Marlina Tampubolon',
+      sektor: 'Sektor 3',
+      status: 'Aktif',
+      tglLahir: '14 Sep 1992',
+      isBaptis: true,
+      isSidi: true,
+      isNikah: true,
+      noKk: 'KK-004',
+      namaKeluarga: 'Keluarga St. H. Manurung',
+      hubunganKeluarga: 'Istri',
+      isKepalaKeluarga: false,
+      telepon: '0812-7788-9900',
+      alamat: 'Jl. Cisangkan No. 15, Cimahi',
+      pekerjaan: 'Wirausaha',
+      jenisKelamin: 'P',
+    ),
+    JemaatMember(
+      id: '6',
+      noRegister: 'GKPI-006',
+      namaLengkap: 'Alm. O. Nainggolan',
+      sektor: 'Sektor 4',
+      status: 'Meninggal',
+      tglLahir: '01 Jan 1945',
+      isBaptis: true,
+      isSidi: true,
+      isNikah: true,
+      noKk: 'KK-005',
+      namaKeluarga: 'Keluarga Situmorang / Nainggolan',
+      hubunganKeluarga: 'Kepala Keluarga',
+      isKepalaKeluarga: true,
+      telepon: '-',
+      alamat: 'Jl. Mahar Martanegara No. 45, Cimahi',
+      pekerjaan: '-',
+      jenisKelamin: 'L',
+    ),
+    JemaatMember(
+      id: '10',
+      noRegister: 'GKPI-010',
+      namaLengkap: 'Drs. Haposan Situmorang',
+      sektor: 'Sektor 4',
+      status: 'Aktif',
+      tglLahir: '08 Mar 1967',
+      isBaptis: true,
+      isSidi: true,
+      isNikah: true,
+      noKk: 'KK-005',
+      namaKeluarga: 'Keluarga Situmorang / Nainggolan',
+      hubunganKeluarga: 'Famili / Lainnya',
+      isKepalaKeluarga: false,
+      telepon: '0813-1645-6835',
+      alamat: 'Jl. Mahar Martanegara No. 45, Cimahi',
+      pekerjaan: 'Akuntan',
+      jenisKelamin: 'L',
     ),
   ];
 
-  // Mock Inventaris Data
+  // Dynamic Family Classification getter
+  List<KeluargaJemaat> get _listKeluarga {
+    final Map<String, List<JemaatMember>> map = {};
+    for (final j in _listJemaat) {
+      final kk = j.noKk ?? 'KK-001';
+      map.putIfAbsent(kk, () => []).add(j);
+    }
+    return map.entries.map((e) {
+      final head = e.value.firstWhere(
+        (m) => m.isKepalaKeluarga || m.hubunganKeluarga == 'Kepala Keluarga',
+        orElse: () => e.value.first,
+      );
+      return KeluargaJemaat(
+        id: e.key,
+        noKk: e.key,
+        namaKeluarga: head.namaKeluarga ?? 'Keluarga ${head.namaLengkap}',
+        sektor: head.sektor,
+        kepalaKeluarga: head.namaLengkap,
+        alamat: head.alamat ?? 'Cimahi',
+        telepon: head.telepon ?? '0812-xxxx-xxxx',
+        jumlahAnggota: e.value.length,
+        anggota: e.value,
+      );
+    }).toList();
+  }
+
+  // Mock Inventaris Data with Division Scoping
   final List<InventarisItem> _listInventaris = [
     InventarisItem(
       id: '1',
-      kode: 'EL-001',
+      kode: 'MM-001',
       namaAset: 'Yamaha MG20XU Sound System',
       lokasi: 'Ruang Control',
       jumlah: 1,
       kondisi: 'Baik',
       status: 'Tersedia',
+      division: 'multimedia',
     ),
     InventarisItem(
       id: '2',
-      kode: 'EL-002',
+      kode: 'MM-002',
       namaAset: 'Proyektor EPSON EB-2250U',
       lokasi: 'Gedung Utama',
       jumlah: 2,
       kondisi: 'Baik',
       status: 'Tersedia',
+      division: 'multimedia',
     ),
     InventarisItem(
       id: '3',
+      kode: 'MM-003',
+      namaAset: 'Sony PXW-Z90 4K Camcorder',
+      lokasi: 'Balkon Media',
+      jumlah: 2,
+      kondisi: 'Baik',
+      status: 'Tersedia',
+      division: 'multimedia',
+    ),
+    InventarisItem(
+      id: '4',
+      kode: 'MM-004',
+      namaAset: 'Blackmagic ATEM Mini Pro Switcher',
+      lokasi: 'Ruang Control',
+      jumlah: 1,
+      kondisi: 'Baik',
+      status: 'Tersedia',
+      division: 'multimedia',
+    ),
+    InventarisItem(
+      id: '5',
       kode: 'MS-001',
       namaAset: 'Organ Roland AT-800',
       lokasi: 'Panggung Utama',
       jumlah: 1,
       kondisi: 'Baik',
       status: 'Tersedia',
+      division: 'pemusik',
     ),
     InventarisItem(
-      id: '4',
+      id: '6',
+      kode: 'MS-002',
+      namaAset: 'Drum Set Pearl Roadshow + Cymbals',
+      lokasi: 'Panggung Utama',
+      jumlah: 1,
+      kondisi: 'Baik',
+      status: 'Tersedia',
+      division: 'pemusik',
+    ),
+    InventarisItem(
+      id: '7',
+      kode: 'MS-003',
+      namaAset: 'Gitar Bass Yamaha TRBX304',
+      lokasi: 'Ruang Musik',
+      jumlah: 1,
+      kondisi: 'Baik',
+      status: 'Tersedia',
+      division: 'pemusik',
+    ),
+    InventarisItem(
+      id: '8',
       kode: 'FS-001',
       namaAset: 'Kursi Futura Stainless',
       lokasi: 'Gedung Utama',
       jumlah: 150,
       kondisi: 'Baik',
       status: 'Tersedia',
+      division: 'umum',
     ),
     InventarisItem(
-      id: '5',
+      id: '9',
       kode: 'FS-002',
       namaAset: 'Meja Altar Kayu Jati',
       lokasi: 'Panggung Utama',
       jumlah: 1,
       kondisi: 'Baik',
       status: 'Tersedia',
+      division: 'umum',
     ),
     InventarisItem(
-      id: '6',
+      id: '10',
       kode: 'FS-003',
       namaAset: 'AC Split Daikin 2PK',
       lokasi: 'Gedung Utama',
       jumlah: 4,
       kondisi: 'Perbaikan',
       status: 'Tidak Tersedia',
+      division: 'umum',
     ),
     InventarisItem(
-      id: '7',
-      kode: 'EL-003',
+      id: '11',
+      kode: 'MM-005',
       namaAset: 'Lampu Sorot LED Stage',
       lokasi: 'Panggung Utama',
       jumlah: 8,
       kondisi: 'Baik',
       status: 'Tersedia',
+      division: 'multimedia',
     ),
     InventarisItem(
-      id: '8',
+      id: '12',
       kode: 'FS-004',
       namaAset: 'Generator Listrik 5000W',
       lokasi: 'Belakang Gedung',
       jumlah: 1,
       kondisi: 'Rusak',
       status: 'Tidak Tersedia',
+      division: 'umum',
     ),
   ];
 
-  // Mock Jadwal Pelayan data
-  final List<JadwalPelayanDetail> _listJadwalPelayan = [
-    JadwalPelayanDetail(
-      id: '1',
-      tglBadge: 'AGU 3',
-      tglLengkap: 'Minggu, 3 Agustus 2025',
-      jenisIbadah: 'Ibadah Minggu Pagi',
-      temaKhotbah: '"Kasih Kristus Yang Menguatkan"',
-      bacaanAlkitab: 'Yohanes 15:9-17',
-      pengkhotbah: 'Pdt. Saut Nainggolan',
-      liturgos: 'Ev. Tiur Simbolon',
-      songsLeader: 'Marlina Tampubolon',
-      multimedia: 'Samuel Nainggolan',
-      musisi: 'Ruli Manurung',
-      diaken: 'St. H. Manurung',
-    ),
-    JadwalPelayanDetail(
-      id: '2',
-      tglBadge: 'AGU 10',
-      tglLengkap: 'Minggu, 10 Agustus 2025',
-      jenisIbadah: 'Ibadah Minggu Pagi',
-      temaKhotbah: '"Berjalan Bersama Tuhan"',
-      bacaanAlkitab: 'Mazmur 23:1-6',
-      pengkhotbah: 'Pdt. B. Siahaan',
-      liturgos: 'Bapak Martua Sirait',
-      songsLeader: 'Ester Simanjorang',
-      multimedia: 'Grace Simanjorang',
-      musisi: 'Drs. Haposan Situmorang',
-      diaken: 'Ibu Rosmida Hutabarat',
-    ),
-  ];
+  // Dynamic Jadwal Pelayan data based on real-time DateTime
+  List<JadwalPelayanDetail> get _listJadwalPelayan {
+    final sun0 = DateHelper.getNextOrCurrentSunday();
+    final sun1 = DateHelper.getSunday(1);
+    return [
+      JadwalPelayanDetail(
+        id: '1',
+        tglBadge: DateHelper.formatBadgeDate(sun0),
+        tglLengkap: DateHelper.formatFullDate(sun0),
+        jenisIbadah: 'Ibadah Minggu Pagi',
+        temaKhotbah: '"Kasih Kristus Yang Menguatkan"',
+        bacaanAlkitab: 'Yohanes 15:9-17',
+        pengkhotbah: 'Pdt. Saut Nainggolan',
+        liturgos: 'Ev. Tiur Simbolon',
+        songsLeader: 'Marlina Tampubolon',
+        multimedia: 'Samuel Nainggolan',
+        musisi: 'Ruli Manurung',
+        diaken: 'St. H. Manurung',
+      ),
+      JadwalPelayanDetail(
+        id: '2',
+        tglBadge: DateHelper.formatBadgeDate(sun1),
+        tglLengkap: DateHelper.formatFullDate(sun1),
+        jenisIbadah: 'Ibadah Minggu Pagi',
+        temaKhotbah: '"Berjalan Bersama Tuhan"',
+        bacaanAlkitab: 'Mazmur 23:1-6',
+        pengkhotbah: 'Pdt. B. Siahaan',
+        liturgos: 'Bapak Martua Sirait',
+        songsLeader: 'Ester Simanjorang',
+        multimedia: 'Grace Simanjorang',
+        musisi: 'Drs. Haposan Situmorang',
+        diaken: 'Ibu Rosmida Hutabarat',
+      ),
+    ];
+  }
 
   // Counters for Jemaat
   int get _aktifCount => _listJemaat.where((j) => j.status == 'Aktif').length;
@@ -348,6 +531,21 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
     }).toList();
   }
 
+  // Filtered List Kartu Keluarga getter
+  List<KeluargaJemaat> get _filteredKeluargaList {
+    return _listKeluarga.where((kk) {
+      final q = _searchController.text.toLowerCase().trim();
+      final matchQuery = q.isEmpty ||
+          kk.namaKeluarga.toLowerCase().contains(q) ||
+          kk.noKk.toLowerCase().contains(q) ||
+          kk.kepalaKeluarga.toLowerCase().contains(q) ||
+          kk.anggota.any((m) => m.namaLengkap.toLowerCase().contains(q));
+      final matchSektor = _selectedSektorFilter == 'Semua Sektor' ||
+          kk.sektor == _selectedSektorFilter;
+      return matchQuery && matchSektor;
+    }).toList();
+  }
+
   // Filtered Inventaris
   List<InventarisItem> get _filteredInventaris {
     return _listInventaris.where((item) {
@@ -359,7 +557,10 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
       final matchKondisi =
           _selectedKondisiFilter == 'Semua Kondisi' ||
           item.kondisi == _selectedKondisiFilter;
-      return matchQuery && matchKondisi;
+      final matchDivisi = _selectedDivisiFilter == 'Semua Divisi' ||
+          item.division.toLowerCase() == _selectedDivisiFilter.toLowerCase() ||
+          (_selectedDivisiFilter == 'Umum & Sarpras' && item.division.toLowerCase() == 'umum');
+      return matchQuery && matchKondisi && matchDivisi;
     }).toList();
   }
 
@@ -511,8 +712,9 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
                                     )
                                     .toList(),
                             onChanged: (val) {
-                              if (val != null)
+                              if (val != null) {
                                 setModalState(() => sektorDipilih = val);
+                              }
                             },
                           ),
                         ),
@@ -533,8 +735,9 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
                                 )
                                 .toList(),
                             onChanged: (val) {
-                              if (val != null)
+                              if (val != null) {
                                 setModalState(() => statusDipilih = val);
+                              }
                             },
                           ),
                         ),
@@ -649,23 +852,21 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
                           final nama = namaController.text.trim();
                           final noReg = noRegController.text.trim();
                           if (nama.isNotEmpty) {
+                            final newMember = JemaatMember(
+                              id: DateTime.now().millisecondsSinceEpoch.toString(),
+                              noRegister: noReg,
+                              namaLengkap: nama,
+                              sektor: sektorDipilih,
+                              status: statusDipilih,
+                              tglLahir: tglLahirController.text.trim(),
+                              isBaptis: baptis,
+                              isSidi: sidi,
+                              isNikah: nikah,
+                            );
                             setState(() {
-                              _listJemaat.insert(
-                                0,
-                                JemaatMember(
-                                  id: DateTime.now().millisecondsSinceEpoch
-                                      .toString(),
-                                  noRegister: noReg,
-                                  namaLengkap: nama,
-                                  sektor: sektorDipilih,
-                                  status: statusDipilih,
-                                  tglLahir: tglLahirController.text.trim(),
-                                  isBaptis: baptis,
-                                  isSidi: sidi,
-                                  isNikah: nikah,
-                                ),
-                              );
+                              _listJemaat.insert(0, newMember);
                             });
+                            ApiService.instance.createMember(newMember.toJson());
                             Navigator.pop(context);
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
@@ -807,8 +1008,9 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
                                 )
                                 .toList(),
                             onChanged: (val) {
-                              if (val != null)
+                              if (val != null) {
                                 setModalState(() => kondisiDipilih = val);
+                              }
                             },
                           ),
                         ),
@@ -829,8 +1031,9 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
                                 )
                                 .toList(),
                             onChanged: (val) {
-                              if (val != null)
+                              if (val != null) {
                                 setModalState(() => statusDipilih = val);
+                              }
                             },
                           ),
                         ),
@@ -885,21 +1088,19 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
                             );
                             return;
                           }
+                          final newAsset = InventarisItem(
+                            id: DateTime.now().millisecondsSinceEpoch.toString(),
+                            kode: kode,
+                            namaAset: nama,
+                            lokasi: lokasi,
+                            jumlah: jumlah,
+                            kondisi: kondisiDipilih,
+                            status: statusDipilih,
+                          );
                           setState(() {
-                            _listInventaris.insert(
-                              0,
-                              InventarisItem(
-                                id: DateTime.now().millisecondsSinceEpoch
-                                    .toString(),
-                                kode: kode,
-                                namaAset: nama,
-                                lokasi: lokasi,
-                                jumlah: jumlah,
-                                kondisi: kondisiDipilih,
-                                status: statusDipilih,
-                              ),
-                            );
+                            _listInventaris.insert(0, newAsset);
                           });
+                          ApiService.instance.createAsset(newAsset.toJson());
                           Navigator.pop(context);
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
@@ -1279,8 +1480,9 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
                                 )
                                 .toList(),
                         onChanged: (val) {
-                          if (val != null)
+                          if (val != null) {
                             setModalState(() => jenisIbadah = val);
+                          }
                         },
                       ),
                       const SizedBox(height: 16),
@@ -1577,42 +1779,51 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
       appBar: _buildAppBar(context),
       body: SafeArea(
         top: false,
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          padding: const EdgeInsets.fromLTRB(16, 16, 16, 96),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              FadeSlideAnimation(
-                duration: const Duration(milliseconds: 500),
-                child: _buildHeaderHeroCard(),
-              ),
-              const SizedBox(height: 16),
+        child: Column(
+          children: [
+            _buildRoleBannerBar(),
+            Expanded(
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                padding: const EdgeInsets.fromLTRB(16, 16, 16, 96),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    FadeSlideAnimation(
+                      duration: const Duration(milliseconds: 500),
+                      child: _buildHeaderHeroCard(),
+                    ),
+                    const SizedBox(height: 12),
+                    _buildUserRoleProfileBar(),
+                    const SizedBox(height: 16),
 
-              FadeSlideAnimation(
-                delay: const Duration(milliseconds: 120),
-                child: _buildSegmentedTabSelector(),
-              ),
-              const SizedBox(height: 16),
+                    FadeSlideAnimation(
+                      delay: const Duration(milliseconds: 120),
+                      child: _buildSegmentedTabSelector(),
+                    ),
+                    const SizedBox(height: 16),
 
-              if (_activeTab == _SekretarisTab.jemaat) ...[
-                FadeSlideAnimation(
-                  delay: const Duration(milliseconds: 200),
-                  child: _buildJemaatContent(context),
+                    if (_activeTab == _SekretarisTab.jemaat) ...[
+                      FadeSlideAnimation(
+                        delay: const Duration(milliseconds: 200),
+                        child: _buildJemaatContent(context),
+                      ),
+                    ] else if (_activeTab == _SekretarisTab.inventaris) ...[
+                      FadeSlideAnimation(
+                        delay: const Duration(milliseconds: 200),
+                        child: _buildInventarisContent(context),
+                      ),
+                    ] else ...[
+                      FadeSlideAnimation(
+                        delay: const Duration(milliseconds: 200),
+                        child: _buildWartaJadwalContent(context),
+                      ),
+                    ],
+                  ],
                 ),
-              ] else if (_activeTab == _SekretarisTab.inventaris) ...[
-                FadeSlideAnimation(
-                  delay: const Duration(milliseconds: 200),
-                  child: _buildInventarisContent(context),
-                ),
-              ] else ...[
-                FadeSlideAnimation(
-                  delay: const Duration(milliseconds: 200),
-                  child: _buildWartaJadwalContent(context),
-                ),
-              ],
-            ],
-          ),
+              ),
+            ),
+          ],
         ),
       ),
       floatingActionButton: ScaleOnTap(
@@ -1639,6 +1850,116 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
           ),
           elevation: 3,
         ),
+      ),
+    );
+  }
+
+  Widget _buildRoleBannerBar() {
+    return Container(
+      width: double.infinity,
+      color: const Color(0xFF004790), // Sekretaris Blue accent hint
+      padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 12),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: const [
+          Icon(Icons.shield_outlined, color: Colors.white, size: 13),
+          SizedBox(width: 6),
+          Flexible(
+            child: Text(
+              'Anda masuk sebagai Sekretaris Jemaat — akses dibatasi sesuai peran',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 11.5,
+                fontWeight: FontWeight.w600,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildUserRoleProfileBar() {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: AppTheme.borderGrey),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.03),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          const CircleAvatar(
+            radius: 18,
+            backgroundColor: Color(0xFF004790),
+            child: Text(
+              'E',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 15,
+              ),
+            ),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Text(
+                  'Ev. Tiur Simbolon',
+                  style: TextStyle(
+                    fontSize: 13.5,
+                    fontWeight: FontWeight.bold,
+                    color: AppTheme.textDark,
+                  ),
+                ),
+                Text(
+                  'Sekretaris Jemaat',
+                  style: TextStyle(
+                    fontSize: 11.5,
+                    color: AppTheme.textGrey,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+            decoration: BoxDecoration(
+              color: const Color(0xFF004790).withValues(alpha: 0.12),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: const [
+                Icon(
+                  Icons.shield_outlined,
+                  size: 12,
+                  color: Color(0xFF004790),
+                ),
+                SizedBox(width: 4),
+                Text(
+                  'Sekretaris',
+                  style: TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF004790),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -1698,6 +2019,28 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
                         fontWeight: FontWeight.w400,
                       ),
                     ),
+                    const SizedBox(width: 8),
+                    Container(
+                      width: 6,
+                      height: 6,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: _isBackendConnected
+                            ? const Color(0xFF4ADE80)
+                            : Colors.amberAccent,
+                      ),
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      _isBackendConnected ? 'Live' : 'Offline',
+                      style: TextStyle(
+                        color: _isBackendConnected
+                            ? const Color(0xFF86EFAC)
+                            : Colors.amberAccent,
+                        fontSize: 10,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
                   ],
                 ),
               ],
@@ -1706,6 +2049,28 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
         ],
       ),
       actions: [
+        IconButton(
+          onPressed: _isLoadingBackend ? null : _loadDataFromBackend,
+          icon: _isLoadingBackend
+              ? const SizedBox(
+                  width: 18,
+                  height: 18,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    color: Colors.white,
+                  ),
+                )
+              : Icon(
+                  Icons.sync,
+                  color: _isBackendConnected
+                      ? const Color(0xFF4ADE80)
+                      : Colors.white70,
+                  size: 22,
+                ),
+          tooltip: _isBackendConnected
+              ? 'Backend Terhubung (Klik untuk sinkronkan)'
+              : 'Sinkronkan dengan Backend',
+        ),
         Padding(
           padding: const EdgeInsets.only(right: 8.0),
           child: ScaleOnTap(
@@ -1984,42 +2349,183 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
             ),
           ],
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 14),
+
+        // View Mode Switcher: Daftar Individu vs Kartu Keluarga Digital
+        Container(
+          padding: const EdgeInsets.all(4),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: AppTheme.borderGrey),
+          ),
+          child: Row(
+            children: [
+              Expanded(
+                child: InkWell(
+                  onTap: () => setState(() => _viewModeJemaat = 'jemaat'),
+                  borderRadius: BorderRadius.circular(8),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    decoration: BoxDecoration(
+                      color: _viewModeJemaat == 'jemaat'
+                          ? AppTheme.primaryBlue
+                          : Colors.transparent,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    alignment: Alignment.center,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.person_outline,
+                          size: 15,
+                          color: _viewModeJemaat == 'jemaat'
+                              ? Colors.white
+                              : AppTheme.textDark,
+                        ),
+                        const SizedBox(width: 6),
+                        Flexible(
+                          child: Text(
+                            'Daftar Jemaat (${_listJemaat.length})',
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: _viewModeJemaat == 'jemaat'
+                                  ? FontWeight.bold
+                                  : FontWeight.w500,
+                              color: _viewModeJemaat == 'jemaat'
+                                  ? Colors.white
+                                  : AppTheme.textDark,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(width: 6),
+              Expanded(
+                child: InkWell(
+                  onTap: () => setState(() => _viewModeJemaat = 'keluarga'),
+                  borderRadius: BorderRadius.circular(8),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    decoration: BoxDecoration(
+                      color: _viewModeJemaat == 'keluarga'
+                          ? AppTheme.primaryBlue
+                          : Colors.transparent,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    alignment: Alignment.center,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.family_restroom,
+                          size: 15,
+                          color: _viewModeJemaat == 'keluarga'
+                              ? Colors.white
+                              : AppTheme.textDark,
+                        ),
+                        const SizedBox(width: 6),
+                        Flexible(
+                          child: Text(
+                            'Kartu Keluarga (${_listKeluarga.length})',
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: _viewModeJemaat == 'keluarga'
+                                  ? FontWeight.bold
+                                  : FontWeight.w500,
+                              color: _viewModeJemaat == 'keluarga'
+                                  ? Colors.white
+                                  : AppTheme.textDark,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 14),
 
         // 3 Stat Cards in Bendahara style
-        Row(
-          children: [
-            Expanded(
-              child: _buildRefinedStatCard(
-                title: 'Aktif',
-                value: '$_aktifCount',
-                icon: Icons.check_circle_outline,
-                iconBgColor: const Color(0xFFDCFCE7),
-                iconColor: const Color(0xFF166534),
+        if (_viewModeJemaat == 'keluarga')
+          Row(
+            children: [
+              Expanded(
+                child: _buildRefinedStatCard(
+                  title: 'Total KK',
+                  value: '${_listKeluarga.length}',
+                  icon: Icons.family_restroom,
+                  iconBgColor: const Color(0xFFEFF6FF),
+                  iconColor: const Color(0xFF1D4ED8),
+                ),
               ),
-            ),
-            const SizedBox(width: 10),
-            Expanded(
-              child: _buildRefinedStatCard(
-                title: 'Pindah',
-                value: '$_pindahCount',
-                icon: Icons.swap_horiz_outlined,
-                iconBgColor: const Color(0xFFFEF3C7),
-                iconColor: const Color(0xFF92400E),
+              const SizedBox(width: 10),
+              Expanded(
+                child: _buildRefinedStatCard(
+                  title: 'Total Jiwa',
+                  value: '$_totalCount',
+                  icon: Icons.people_alt_outlined,
+                  iconBgColor: const Color(0xFFDCFCE7),
+                  iconColor: const Color(0xFF166534),
+                ),
               ),
-            ),
-            const SizedBox(width: 10),
-            Expanded(
-              child: _buildRefinedStatCard(
-                title: 'Meninggal',
-                value: '$_meninggalCount',
-                icon: Icons.sentiment_dissatisfied_outlined,
-                iconBgColor: const Color(0xFFF3F4F6),
-                iconColor: const Color(0xFF374151),
+              const SizedBox(width: 10),
+              Expanded(
+                child: _buildRefinedStatCard(
+                  title: 'Sektor',
+                  value: '5 Sektor',
+                  icon: Icons.grid_view,
+                  iconBgColor: const Color(0xFFFEF3C7),
+                  iconColor: const Color(0xFF92400E),
+                ),
               ),
-            ),
-          ],
-        ),
+            ],
+          )
+        else
+          Row(
+            children: [
+              Expanded(
+                child: _buildRefinedStatCard(
+                  title: 'Aktif',
+                  value: '$_aktifCount',
+                  icon: Icons.check_circle_outline,
+                  iconBgColor: const Color(0xFFDCFCE7),
+                  iconColor: const Color(0xFF166534),
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: _buildRefinedStatCard(
+                  title: 'Pindah',
+                  value: '$_pindahCount',
+                  icon: Icons.swap_horiz_outlined,
+                  iconBgColor: const Color(0xFFFEF3C7),
+                  iconColor: const Color(0xFF92400E),
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: _buildRefinedStatCard(
+                  title: 'Meninggal',
+                  value: '$_meninggalCount',
+                  icon: Icons.sentiment_dissatisfied_outlined,
+                  iconBgColor: const Color(0xFFF3F4F6),
+                  iconColor: const Color(0xFF374151),
+                ),
+              ),
+            ],
+          ),
         const SizedBox(height: 16),
 
         // Search & Filter Box
@@ -2104,8 +2610,9 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
                               )
                               .toList(),
                       onChanged: (val) {
-                        if (val != null)
+                        if (val != null) {
                           setState(() => _selectedSektorFilter = val);
+                        }
                       },
                     ),
                   ),
@@ -2127,8 +2634,9 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
                           )
                           .toList(),
                       onChanged: (val) {
-                        if (val != null)
+                        if (val != null) {
                           setState(() => _selectedStatusFilter = val);
+                        }
                       },
                     ),
                   ),
@@ -2139,8 +2647,10 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
         ),
         const SizedBox(height: 16),
 
-        // Member Cards List
-        if (filtered.isEmpty)
+        // Member Cards List vs Kartu Keluarga
+        if (_viewModeJemaat == 'keluarga')
+          _buildKartuKeluargaView()
+        else if (filtered.isEmpty)
           _buildEmptySlot(
             icon: Icons.people_outline,
             text: 'Data jemaat tidak ditemukan.',
@@ -2294,6 +2804,44 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
         ),
         const SizedBox(height: 14),
 
+        // Division Filter Chips (Umum, Pemusik, Multimedia)
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              'Semua Divisi',
+              'Umum & Sarpras',
+              'Pemusik',
+              'Multimedia',
+            ].map((div) {
+              final isSel = _selectedDivisiFilter == div;
+              return Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: FilterChip(
+                  label: Text(div),
+                  selected: isSel,
+                  onSelected: (_) => setState(() => _selectedDivisiFilter = div),
+                  backgroundColor: Colors.white,
+                  selectedColor: AppTheme.primaryBlue.withValues(alpha: 0.15),
+                  checkmarkColor: AppTheme.primaryBlue,
+                  labelStyle: TextStyle(
+                    fontSize: 12,
+                    fontWeight: isSel ? FontWeight.bold : FontWeight.normal,
+                    color: isSel ? AppTheme.primaryBlue : AppTheme.textDark,
+                  ),
+                  side: BorderSide(
+                    color: isSel ? AppTheme.primaryBlue : AppTheme.borderGrey,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              );
+            }).toList(),
+          ),
+        ),
+        const SizedBox(height: 12),
+
         // Items count info
         Text(
           'Menampilkan ${filtered.length} dari ${_listInventaris.length} aset',
@@ -2345,11 +2893,37 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
         ),
         const SizedBox(height: 16),
 
-        // Action Buttons row
-        Row(
-          children: [
-            Expanded(
-              child: OutlinedButton.icon(
+        // Action Buttons row (Tambah Warta, Pratinjau Warta, Cetak)
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          physics: const BouncingScrollPhysics(),
+          child: Row(
+            children: [
+              ElevatedButton.icon(
+                onPressed: _openTambahWartaModal,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppTheme.primaryBlue,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 14,
+                    vertical: 10,
+                  ),
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                icon: const Icon(Icons.post_add_outlined, size: 16),
+                label: const Text(
+                  'Tambah Warta',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 8),
+              OutlinedButton.icon(
                 onPressed: () =>
                     setState(() => _showWartaPratinjau = !_showWartaPratinjau),
                 style: OutlinedButton.styleFrom(
@@ -2381,39 +2955,39 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
                 label: Text(
                   _showWartaPratinjau ? 'Sembunyikan' : 'Pratinjau Warta',
                   style: const TextStyle(
-                    fontSize: 12.5,
+                    fontSize: 11.5,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
-            ),
-            const SizedBox(width: 10),
-            OutlinedButton.icon(
-              onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Fitur cetak/export akan segera tersedia.'),
+              const SizedBox(width: 8),
+              OutlinedButton.icon(
+                onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Fitur cetak/export akan segera tersedia.'),
+                  ),
                 ),
-              ),
-              style: OutlinedButton.styleFrom(
-                foregroundColor: AppTheme.textDark,
-                side: const BorderSide(color: AppTheme.borderGrey),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 14,
-                  vertical: 10,
+                style: OutlinedButton.styleFrom(
+                  foregroundColor: AppTheme.textDark,
+                  side: const BorderSide(color: AppTheme.borderGrey),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 10,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  backgroundColor: Colors.white,
                 ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
+                icon: const Icon(
+                  Icons.print_outlined,
+                  size: 16,
+                  color: AppTheme.textGrey,
                 ),
-                backgroundColor: Colors.white,
+                label: const Text('Cetak', style: TextStyle(fontSize: 12)),
               ),
-              icon: const Icon(
-                Icons.print_outlined,
-                size: 16,
-                color: AppTheme.textGrey,
-              ),
-              label: const Text('Cetak', style: TextStyle(fontSize: 12.5)),
-            ),
-          ],
+            ],
+          ),
         ),
         const SizedBox(height: 20),
 
@@ -2624,6 +3198,8 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
                   ],
                 ),
               ),
+              const SizedBox(width: 8),
+              _buildDivisionBadge(item.division),
               const Spacer(),
               // Status chip
               Container(
@@ -2647,14 +3223,23 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
               ),
               IconButton(
                 onPressed: () {
-                  setState(
-                    () => _listInventaris.removeWhere((x) => x.id == item.id),
-                  );
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('${item.namaAset} dihapus.'),
-                      backgroundColor: AppTheme.buttonRed,
-                    ),
+                  _showConfirmDeleteDialog(
+                    title: 'Hapus Aset',
+                    message:
+                        'Apakah Anda yakin ingin menghapus aset "${item.namaAset}" (${item.kode})?',
+                    onConfirm: () {
+                      final assetId = item.id;
+                      setState(
+                        () => _listInventaris.removeWhere((x) => x.id == assetId),
+                      );
+                      ApiService.instance.deleteAsset(assetId);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('${item.namaAset} dihapus.'),
+                          backgroundColor: AppTheme.buttonRed,
+                        ),
+                      );
+                    },
                   );
                 },
                 icon: const Icon(
@@ -2711,6 +3296,55 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
                 ),
               ),
             ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildDivisionBadge(String division) {
+    Color bg;
+    Color fg;
+    String label;
+    IconData icon;
+    switch (division.toLowerCase()) {
+      case 'pemusik':
+        bg = const Color(0xFFFEF3C7);
+        fg = const Color(0xFFB45309);
+        label = 'Pemusik';
+        icon = Icons.music_note_outlined;
+        break;
+      case 'multimedia':
+        bg = const Color(0xFFF3E8FF);
+        fg = const Color(0xFF7E22CE);
+        label = 'Multimedia';
+        icon = Icons.videocam_outlined;
+        break;
+      default:
+        bg = const Color(0xFFF1F5F9);
+        fg = const Color(0xFF475569);
+        label = 'Umum';
+        icon = Icons.corporate_fare_outlined;
+    }
+
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
+      decoration: BoxDecoration(
+        color: bg,
+        borderRadius: BorderRadius.circular(6),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: 11, color: fg),
+          const SizedBox(width: 3),
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: 10.5,
+              fontWeight: FontWeight.bold,
+              color: fg,
+            ),
           ),
         ],
       ),
@@ -2826,16 +3460,24 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
                 const SizedBox(height: 4),
                 IconButton(
                   onPressed: () {
-                    setState(() {
-                      if (_selectedJadwal?.id == jadwal.id)
-                        _selectedJadwal = null;
-                      _listJadwalPelayan.removeWhere((x) => x.id == jadwal.id);
-                    });
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text('Jadwal ${jadwal.tglBadge} dihapus.'),
-                        backgroundColor: AppTheme.buttonRed,
-                      ),
+                    _showConfirmDeleteDialog(
+                      title: 'Hapus Jadwal',
+                      message:
+                          'Apakah Anda yakin ingin menghapus jadwal "${jadwal.jenisIbadah}" (${jadwal.tglBadge})?',
+                      onConfirm: () {
+                        setState(() {
+                          if (_selectedJadwal?.id == jadwal.id) {
+                            _selectedJadwal = null;
+                          }
+                          _listJadwalPelayan.removeWhere((x) => x.id == jadwal.id);
+                        });
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('Jadwal ${jadwal.tglBadge} dihapus.'),
+                            backgroundColor: AppTheme.buttonRed,
+                          ),
+                        );
+                      },
                     );
                   },
                   icon: Icon(
@@ -3390,6 +4032,24 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
                   color: AppTheme.primaryBlue,
                 ),
               ),
+              if (member.noKk != null) ...[
+                const SizedBox(width: 8),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                  decoration: BoxDecoration(
+                    color: AppTheme.primaryBlue.withValues(alpha: 0.1),
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  child: Text(
+                    member.noKk!,
+                    style: const TextStyle(
+                      fontSize: 10.5,
+                      fontWeight: FontWeight.bold,
+                      color: AppTheme.primaryBlue,
+                    ),
+                  ),
+                ),
+              ],
               const Spacer(),
               Container(
                 padding: const EdgeInsets.symmetric(
@@ -3412,13 +4072,22 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
             ],
           ),
           const SizedBox(height: 6),
-          Text(
-            member.namaLengkap,
-            style: const TextStyle(
-              fontSize: 15.5,
-              fontWeight: FontWeight.bold,
-              color: AppTheme.textDark,
-            ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Text(
+                  member.namaLengkap,
+                  style: const TextStyle(
+                    fontSize: 15.5,
+                    fontWeight: FontWeight.bold,
+                    color: AppTheme.textDark,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 6),
+              _buildHubunganBadge(member.hubunganKeluarga, member.isKepalaKeluarga),
+            ],
           ),
           const SizedBox(height: 8),
           Row(
@@ -3464,14 +4133,626 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
           const SizedBox(height: 12),
           const Divider(color: AppTheme.borderGrey, height: 1),
           const SizedBox(height: 10),
-          Wrap(
-            spacing: 6,
-            runSpacing: 4,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              if (member.isBaptis) _buildSakramenBadge('✓ Baptis'),
-              if (member.isSidi) _buildSakramenBadge('✓ Sidi'),
-              if (member.isNikah) _buildSakramenBadge('✓ Nikah'),
+              Expanded(
+                child: Wrap(
+                  spacing: 6,
+                  runSpacing: 4,
+                  children: [
+                    if (member.isBaptis) _buildSakramenBadge('✓ Baptis'),
+                    if (member.isSidi) _buildSakramenBadge('✓ Sidi'),
+                    if (member.isNikah) _buildSakramenBadge('✓ Nikah'),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 8),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                    icon: const Icon(
+                      Icons.visibility_outlined,
+                      size: 18,
+                      color: AppTheme.primaryBlue,
+                    ),
+                    onPressed: () => _showDetailJemaatDialog(member),
+                    padding: EdgeInsets.zero,
+                    constraints: const BoxConstraints(),
+                    tooltip: 'Lihat Detail',
+                  ),
+                  const SizedBox(width: 12),
+                  IconButton(
+                    icon: const Icon(
+                      Icons.delete_outline,
+                      size: 18,
+                      color: AppTheme.buttonRed,
+                    ),
+                    onPressed: () {
+                      _showConfirmDeleteDialog(
+                        title: 'Hapus Data Jemaat',
+                        message:
+                            'Apakah Anda yakin ingin menghapus data ${member.namaLengkap} (${member.noRegister})?',
+                        onConfirm: () {
+                          final memberId = member.id;
+                          setState(() {
+                            _listJemaat.removeWhere((j) => j.id == memberId);
+                          });
+                          ApiService.instance.deleteMember(memberId);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Data ${member.namaLengkap} telah dihapus'),
+                              backgroundColor: AppTheme.buttonRed,
+                            ),
+                          );
+                        },
+                      );
+                    },
+                    padding: EdgeInsets.zero,
+                    constraints: const BoxConstraints(),
+                    tooltip: 'Hapus Jemaat',
+                  ),
+                ],
+              ),
             ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  // ---------------------------------------------------------------------------
+  // DIGITAL KARTU KELUARGA (KK) COMPONENTS
+  // ---------------------------------------------------------------------------
+  Widget _buildKartuKeluargaView() {
+    final list = _filteredKeluargaList;
+    if (list.isEmpty) {
+      return _buildEmptySlot(
+        icon: Icons.family_restroom,
+        text: 'Data Kartu Keluarga tidak ditemukan.',
+      );
+    }
+    return ListView.separated(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: list.length,
+      separatorBuilder: (_, i) => const SizedBox(height: 12),
+      itemBuilder: (context, index) => _buildKeluargaCard(list[index]),
+    );
+  }
+
+  Widget _buildKeluargaCard(KeluargaJemaat kk) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: AppTheme.borderGrey),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.04),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Header: No KK badge + Sektor + Detail KK Button
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    decoration: BoxDecoration(
+                      color: AppTheme.primaryBlue.withValues(alpha: 0.1),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(Icons.assignment_ind, size: 13, color: AppTheme.primaryBlue),
+                        const SizedBox(width: 4),
+                        Text(
+                          kk.noKk,
+                          style: const TextStyle(
+                            fontSize: 11.5,
+                            fontWeight: FontWeight.bold,
+                            color: AppTheme.primaryBlue,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    decoration: BoxDecoration(
+                      color: AppTheme.backgroundGrey,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: AppTheme.borderGrey),
+                    ),
+                    child: Text(
+                      kk.sektor,
+                      style: const TextStyle(
+                        fontSize: 11,
+                        fontWeight: FontWeight.w600,
+                        color: AppTheme.textDark,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              InkWell(
+                onTap: () => _showDetailKeluargaDialog(kk),
+                borderRadius: BorderRadius.circular(8),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  decoration: BoxDecoration(
+                    color: AppTheme.lightBlueCard,
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(color: const Color(0xFFBFDBFE)),
+                  ),
+                  child: const Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.visibility_outlined, size: 14, color: AppTheme.primaryBlue),
+                      SizedBox(width: 4),
+                      Text(
+                        'Detail KK',
+                        style: TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.bold,
+                          color: AppTheme.primaryBlue,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+
+          // Nama Keluarga
+          Text(
+            kk.namaKeluarga,
+            style: const TextStyle(
+              fontSize: 15.5,
+              fontWeight: FontWeight.bold,
+              color: AppTheme.textDark,
+            ),
+          ),
+          const SizedBox(height: 8),
+
+          // Kepala Keluarga
+          Row(
+            children: [
+              const Icon(Icons.workspace_premium, size: 15, color: Color(0xFFD97706)),
+              const SizedBox(width: 6),
+              const Text(
+                'Kepala: ',
+                style: TextStyle(fontSize: 12, color: AppTheme.textGrey),
+              ),
+              Expanded(
+                child: Text(
+                  kk.kepalaKeluarga,
+                  style: const TextStyle(
+                    fontSize: 12.5,
+                    fontWeight: FontWeight.bold,
+                    color: AppTheme.textDark,
+                  ),
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFDCFCE7),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Text(
+                  '${kk.jumlahAnggota} Jiwa',
+                  style: const TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF166534),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 6),
+
+          // Alamat
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Icon(Icons.location_on_outlined, size: 15, color: AppTheme.textGrey),
+              const SizedBox(width: 6),
+              Expanded(
+                child: Text(
+                  kk.alamat,
+                  style: const TextStyle(fontSize: 12, color: AppTheme.textGrey),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+
+          // Anggota Keluarga List Preview
+          Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: AppTheme.backgroundGrey,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Anggota Keluarga:',
+                  style: TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.bold,
+                    color: AppTheme.textGrey,
+                  ),
+                ),
+                const SizedBox(height: 6),
+                ...kk.anggota.map((m) => Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 3.0),
+                  child: Row(
+                    children: [
+                      Icon(
+                        m.jenisKelamin == 'P' ? Icons.female : Icons.male,
+                        size: 14,
+                        color: AppTheme.textGrey,
+                      ),
+                      const SizedBox(width: 4),
+                      Expanded(
+                        child: Text(
+                          m.namaLengkap,
+                          style: const TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                            color: AppTheme.textDark,
+                          ),
+                        ),
+                      ),
+                      _buildHubunganBadge(m.hubunganKeluarga, m.isKepalaKeluarga),
+                    ],
+                  ),
+                )),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showDetailKeluargaDialog(KeluargaJemaat kk) {
+    showDialog(
+      context: context,
+      builder: (ctx) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          title: Row(
+            children: [
+              const Icon(Icons.family_restroom, color: AppTheme.primaryBlue, size: 24),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      kk.namaKeluarga,
+                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      '${kk.noKk} • ${kk.sektor}',
+                      style: const TextStyle(fontSize: 12, color: AppTheme.textGrey),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          content: SizedBox(
+            width: 480,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildDetailRow('Kepala Keluarga', kk.kepalaKeluarga),
+                  _buildDetailRow('Alamat', kk.alamat),
+                  _buildDetailRow('No. Telepon', kk.telepon),
+                  _buildDetailRow('Jumlah Anggota', '${kk.jumlahAnggota} Jiwa'),
+                  const SizedBox(height: 14),
+                  const Text(
+                    'Daftar Anggota Keluarga Terdaftar:',
+                    style: TextStyle(
+                      fontSize: 12.5,
+                      fontWeight: FontWeight.bold,
+                      color: AppTheme.textDark,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  ...kk.anggota.map((m) => Container(
+                    margin: const EdgeInsets.only(bottom: 8),
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: AppTheme.backgroundGrey,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: AppTheme.borderGrey),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                              child: Text(
+                                m.namaLengkap,
+                                style: const TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.bold,
+                                  color: AppTheme.textDark,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            _buildHubunganBadge(m.hubunganKeluarga, m.isKepalaKeluarga),
+                          ],
+                        ),
+                        const SizedBox(height: 4),
+                        Wrap(
+                          spacing: 10,
+                          runSpacing: 4,
+                          children: [
+                            Text(
+                              'Reg: ${m.noRegister}',
+                              style: const TextStyle(fontSize: 11, color: AppTheme.primaryBlue),
+                            ),
+                            Text(
+                              'Lahir: ${m.tglLahir}',
+                              style: const TextStyle(fontSize: 11, color: AppTheme.textGrey),
+                            ),
+                            if (m.pekerjaan != null && m.pekerjaan != '-')
+                              Text(
+                                'Profesi: ${m.pekerjaan}',
+                                style: const TextStyle(fontSize: 11, color: AppTheme.textGrey),
+                              ),
+                          ],
+                        ),
+                        const SizedBox(height: 6),
+                        Wrap(
+                          spacing: 4,
+                          children: [
+                            if (m.isBaptis) _buildSakramenBadge('✓ Baptis'),
+                            if (m.isSidi) _buildSakramenBadge('✓ Sidi'),
+                            if (m.isNikah) _buildSakramenBadge('✓ Nikah'),
+                          ],
+                        ),
+                      ],
+                    ),
+                  )),
+                ],
+              ),
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx),
+              child: const Text('Tutup'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _showDetailJemaatDialog(JemaatMember item) {
+    showDialog(
+      context: context,
+      builder: (ctx) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          title: Row(
+            children: [
+              const Icon(Icons.badge_outlined, color: AppTheme.primaryBlue, size: 24),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  item.namaLengkap,
+                  style: const TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          content: SingleChildScrollView(
+            child: SizedBox(
+              width: 440,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildDetailRow('No. Register', item.noRegister),
+                  if (item.noKk != null) _buildDetailRow('No. KK', item.noKk!),
+                  _buildDetailRow('Hubungan Keluarga', item.hubunganKeluarga),
+                  if (item.namaKeluarga != null)
+                    _buildDetailRow('Nama Keluarga', item.namaKeluarga!),
+                  _buildDetailRow('Sektor', item.sektor),
+                  _buildDetailRow('Status Keanggotaan', item.status),
+                  _buildDetailRow('Tanggal Lahir', item.tglLahir),
+                  if (item.pekerjaan != null && item.pekerjaan != '-')
+                    _buildDetailRow('Pekerjaan', item.pekerjaan!),
+                  if (item.telepon != null && item.telepon != '-')
+                    _buildDetailRow('No. Telepon', item.telepon!),
+                  if (item.alamat != null)
+                    _buildDetailRow('Alamat', item.alamat!),
+                  const SizedBox(height: 12),
+                  const Text(
+                    'Sakramen Gerejawi:',
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                      color: AppTheme.textGrey,
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                  Wrap(
+                    spacing: 8,
+                    children: [
+                      if (item.isBaptis) _buildSakramenBadge('✓ Baptis'),
+                      if (item.isSidi) _buildSakramenBadge('✓ Sidi'),
+                      if (item.isNikah) _buildSakramenBadge('✓ Nikah'),
+                    ],
+                  ),
+                  // Household members sharing same KK
+                  if (item.noKk != null &&
+                      _listJemaat.any((j) => j.noKk == item.noKk && j.id != item.id)) ...[
+                    const SizedBox(height: 14),
+                    const Divider(),
+                    const SizedBox(height: 6),
+                    Text(
+                      'Anggota Serumah (${item.noKk}):',
+                      style: const TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                        color: AppTheme.textDark,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    ..._listJemaat
+                        .where((j) => j.noKk == item.noKk && j.id != item.id)
+                        .map((other) => Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 3.0),
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    other.jenisKelamin == 'P' ? Icons.female : Icons.male,
+                                    size: 14,
+                                    color: AppTheme.textGrey,
+                                  ),
+                                  const SizedBox(width: 6),
+                                  Expanded(
+                                    child: Text(
+                                      other.namaLengkap,
+                                      style: const TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w500,
+                                        color: AppTheme.textDark,
+                                      ),
+                                    ),
+                                  ),
+                                  _buildHubunganBadge(
+                                    other.hubunganKeluarga,
+                                    other.isKepalaKeluarga,
+                                  ),
+                                ],
+                              ),
+                            )),
+                  ],
+                ],
+              ),
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx),
+              child: const Text('Tutup'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget _buildDetailRow(String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            width: 125,
+            child: Text(
+              label,
+              style: const TextStyle(fontSize: 12.5, color: AppTheme.textGrey),
+            ),
+          ),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Text(
+              value,
+              textAlign: TextAlign.end,
+              style: const TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.bold,
+                color: AppTheme.textDark,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildHubunganBadge(String? hubungan, bool isHead) {
+    final h = hubungan ?? (isHead ? 'Kepala Keluarga' : 'Anggota');
+    Color bg;
+    Color fg;
+    IconData icon;
+
+    switch (h) {
+      case 'Kepala Keluarga':
+        bg = const Color(0xFFFEF3C7);
+        fg = const Color(0xFFB45309);
+        icon = Icons.workspace_premium;
+        break;
+      case 'Istri':
+        bg = const Color(0xFFFCE7F3);
+        fg = const Color(0xFFBE185D);
+        icon = Icons.favorite_rounded;
+        break;
+      case 'Anak':
+        bg = const Color(0xFFE0F2FE);
+        fg = const Color(0xFF0369A1);
+        icon = Icons.person_outline;
+        break;
+      default:
+        bg = const Color(0xFFF3E8FF);
+        fg = const Color(0xFF7E22CE);
+        icon = Icons.people_outline;
+    }
+
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
+      decoration: BoxDecoration(
+        color: bg,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: 11, color: fg),
+          const SizedBox(width: 4),
+          Text(
+            h,
+            style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: fg),
           ),
         ],
       ),
@@ -3494,6 +4775,488 @@ class _SekretarisScreenState extends State<SekretarisScreen> {
           color: AppTheme.primaryBlue,
         ),
       ),
+    );
+  }
+
+  void _showConfirmDeleteDialog({
+    required String title,
+    required String message,
+    required VoidCallback onConfirm,
+  }) {
+    showDialog(
+      context: context,
+      builder: (ctx) {
+        return Dialog(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          elevation: 10,
+          backgroundColor: Colors.white,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(24, 24, 24, 20),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  width: 56,
+                  height: 56,
+                  decoration: BoxDecoration(
+                    color: AppTheme.buttonRed.withValues(alpha: 0.12),
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(
+                    Icons.delete_forever_outlined,
+                    color: AppTheme.buttonRed,
+                    size: 30,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: AppTheme.textDark,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  message,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 13.5,
+                    color: AppTheme.textGrey,
+                    height: 1.4,
+                  ),
+                ),
+                const SizedBox(height: 24),
+                Row(
+                  children: [
+                    Expanded(
+                      child: OutlinedButton(
+                        onPressed: () => Navigator.pop(ctx),
+                        style: OutlinedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 12),
+                          side: const BorderSide(color: AppTheme.borderGrey),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          foregroundColor: AppTheme.textDark,
+                        ),
+                        child: const Text(
+                          'Batal',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.pop(ctx);
+                          onConfirm();
+                        },
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 12),
+                          backgroundColor: AppTheme.buttonRed,
+                          elevation: 0,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        child: const Text(
+                          'Hapus',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void _openTambahWartaModal() {
+    final edisiController = TextEditingController(
+      text: 'Warta Minggu, ${_now.day + 7} ${_bulanNama[_now.month - 1]} ${_now.year}',
+    );
+    final tglController = TextEditingController(
+      text: 'Minggu, ${_now.day + 7} ${_bulanNama[_now.month - 1]} ${_now.year}',
+    );
+    final tglBadgeController = TextEditingController(
+      text: 'AGU ${_now.day + 7}',
+    );
+    String jenisIbadah = 'Ibadah Minggu Pagi';
+    final temaController = TextEditingController();
+    final bacaanController = TextEditingController();
+    final pengkhotbahController = TextEditingController(text: 'Pdt. Saut Nainggolan');
+    final liturgosController = TextEditingController(text: 'Ev. Tiur Simbolon');
+    final songsLeaderController = TextEditingController(text: 'Marlina Tampubolon');
+    final multimediaController = TextEditingController(text: 'Ruli Manurung');
+    final musisiController = TextEditingController(text: 'Jonatan Purba');
+    final diakenController = TextEditingController(text: 'Bapak Martua Sirait');
+    final isiWartaController = TextEditingController(
+      text: 'Informasi dan warta pelayanan jemaat GKPI Cimahi.',
+    );
+
+    bool isFileUploaded = false;
+    String fileName = 'Document_Warta_${_now.day + 7}_${_now.month}.pdf';
+
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (ctx) {
+        return StatefulBuilder(
+          builder: (context, setModalState) {
+            return Container(
+              height: MediaQuery.of(context).size.height * 0.88,
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+              ),
+              child: Column(
+                children: [
+                  const SizedBox(height: 12),
+                  Container(
+                    width: 40,
+                    height: 4,
+                    decoration: BoxDecoration(
+                      color: AppTheme.borderGrey,
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 16, 20, 12),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: const [
+                            Icon(Icons.post_add_outlined, color: AppTheme.primaryBlue, size: 22),
+                            SizedBox(width: 8),
+                            Text(
+                              'Tambah Warta Jemaat',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: AppTheme.textDark,
+                              ),
+                            ),
+                          ],
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.close, color: AppTheme.textGrey),
+                          onPressed: () => Navigator.pop(ctx),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const Divider(height: 1, color: AppTheme.borderGrey),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TextField(
+                            controller: edisiController,
+                            decoration: _fieldDecoration('Edisi / Judul Warta').copyWith(
+                              hintText: 'e.g. Warta Minggu 17 Agustus 2025',
+                            ),
+                          ),
+                          const SizedBox(height: 14),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: TextField(
+                                  controller: tglBadgeController,
+                                  decoration: _fieldDecoration('Badge Tgl').copyWith(
+                                    hintText: 'e.g. AGU 17',
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                flex: 2,
+                                child: TextField(
+                                  controller: tglController,
+                                  decoration: _fieldDecoration('Tanggal Lengkap').copyWith(
+                                    hintText: 'e.g. Minggu, 17 Agustus 2025',
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 14),
+                          DropdownButtonFormField<String>(
+                            initialValue: jenisIbadah,
+                            decoration: _fieldDecoration('Jenis Ibadah'),
+                            items: [
+                              'Ibadah Minggu Pagi',
+                              'Ibadah Minggu Sore',
+                              'Ibadah Sekolah Minggu',
+                              'Ibadah Pemuda',
+                            ].map((s) => DropdownMenuItem(value: s, child: Text(s))).toList(),
+                            onChanged: (val) {
+                              if (val != null) {
+                                setModalState(() => jenisIbadah = val);
+                              }
+                            },
+                          ),
+                          const SizedBox(height: 14),
+                          TextField(
+                            controller: temaController,
+                            decoration: _fieldDecoration('Tema Khotbah').copyWith(
+                              hintText: 'e.g. "Kasih Kristus Yang Menguatkan"',
+                            ),
+                          ),
+                          const SizedBox(height: 14),
+                          TextField(
+                            controller: bacaanController,
+                            decoration: _fieldDecoration('Bacaan Alkitab').copyWith(
+                              hintText: 'e.g. Yohanes 15:9-17',
+                            ),
+                          ),
+                          const SizedBox(height: 14),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: TextField(
+                                  controller: pengkhotbahController,
+                                  decoration: _fieldDecoration('Pengkhotbah'),
+                                ),
+                              ),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: TextField(
+                                  controller: liturgosController,
+                                  decoration: _fieldDecoration('Liturgos'),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 14),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: TextField(
+                                  controller: songsLeaderController,
+                                  decoration: _fieldDecoration('Songs Leader'),
+                                ),
+                              ),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: TextField(
+                                  controller: multimediaController,
+                                  decoration: _fieldDecoration('Multimedia'),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 14),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: TextField(
+                                  controller: musisiController,
+                                  decoration: _fieldDecoration('Musisi'),
+                                ),
+                              ),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: TextField(
+                                  controller: diakenController,
+                                  decoration: _fieldDecoration('Diaken'),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 14),
+                          TextField(
+                            controller: isiWartaController,
+                            maxLines: 3,
+                            decoration: _fieldDecoration('Ringkasan / Isi Warta').copyWith(
+                              hintText: 'Tuliskan pengumuman atau catatan warta jemaat...',
+                            ),
+                          ),
+                          const SizedBox(height: 16),
+
+                          const Text(
+                            'LAMPIRAN FILE WARTA',
+                            style: TextStyle(
+                              fontSize: 11,
+                              fontWeight: FontWeight.bold,
+                              color: AppTheme.textGrey,
+                              letterSpacing: 0.8,
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          InkWell(
+                            onTap: () {
+                              setModalState(() {
+                                isFileUploaded = !isFileUploaded;
+                              });
+                            },
+                            borderRadius: BorderRadius.circular(12),
+                            child: Container(
+                              width: double.infinity,
+                              padding: const EdgeInsets.all(14),
+                              decoration: BoxDecoration(
+                                color: isFileUploaded
+                                    ? const Color(0xFFDCFCE7)
+                                    : AppTheme.backgroundGrey,
+                                borderRadius: BorderRadius.circular(12),
+                                border: Border.all(
+                                  color: isFileUploaded
+                                      ? const Color(0xFF166534)
+                                      : AppTheme.borderGrey,
+                                  style: BorderStyle.solid,
+                                ),
+                              ),
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    isFileUploaded
+                                        ? Icons.check_circle_outline
+                                        : Icons.upload_file_outlined,
+                                    color: isFileUploaded
+                                        ? const Color(0xFF166534)
+                                        : AppTheme.primaryBlue,
+                                    size: 24,
+                                  ),
+                                  const SizedBox(width: 12),
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          isFileUploaded
+                                              ? 'File Warta Diterima: $fileName'
+                                              : 'Upload Dokumen Warta (.pdf / .docx)',
+                                          style: TextStyle(
+                                            fontSize: 12.5,
+                                            fontWeight: FontWeight.bold,
+                                            color: isFileUploaded
+                                                ? const Color(0xFF166534)
+                                                : AppTheme.textDark,
+                                          ),
+                                        ),
+                                        Text(
+                                          isFileUploaded
+                                              ? 'Klik untuk mengganti file'
+                                              : 'Pilih file warta jemaat dari perangkat Anda',
+                                          style: TextStyle(
+                                            fontSize: 11,
+                                            color: isFileUploaded
+                                                ? const Color(0xFF166534).withValues(alpha: 0.8)
+                                                : AppTheme.textGrey,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: OutlinedButton(
+                            onPressed: () => Navigator.pop(ctx),
+                            style: OutlinedButton.styleFrom(
+                              padding: const EdgeInsets.symmetric(vertical: 14),
+                              side: const BorderSide(color: AppTheme.borderGrey),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
+                            child: const Text('Batal'),
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: ElevatedButton(
+                            onPressed: () {
+                              final newJadwal = JadwalPelayanDetail(
+                                 id: 'JDW-00${_listJadwalPelayan.length + 1}',
+                                tglBadge: tglBadgeController.text.trim().isNotEmpty
+                                    ? tglBadgeController.text.trim()
+                                    : DateHelper.formatBadgeDate(DateHelper.getNextOrCurrentSunday()),
+                                tglLengkap: tglController.text.trim().isNotEmpty
+                                    ? tglController.text.trim()
+                                    : DateHelper.formatFullDate(DateHelper.getNextOrCurrentSunday()),
+                                jenisIbadah: jenisIbadah,
+                                temaKhotbah: temaController.text.trim().isNotEmpty
+                                    ? '"${temaController.text.trim()}"'
+                                    : '"Hidup Dalam Terang Firman"',
+                                bacaanAlkitab: bacaanController.text.trim().isNotEmpty
+                                    ? bacaanController.text.trim()
+                                    : 'Mazmur 119:105-112',
+                                pengkhotbah: pengkhotbahController.text.trim(),
+                                liturgos: liturgosController.text.trim(),
+                                songsLeader: songsLeaderController.text.trim(),
+                                multimedia: multimediaController.text.trim(),
+                                musisi: musisiController.text.trim(),
+                                diaken: diakenController.text.trim(),
+                              );
+                              setState(() {
+                                _listJadwalPelayan.insert(0, newJadwal);
+                                _selectedJadwal = newJadwal;
+                                _showWartaPratinjau = true;
+                              });
+                              Navigator.pop(ctx);
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Warta "${edisiController.text.trim()}" berhasil ditambahkan!',
+                                  ),
+                                  backgroundColor: const Color(0xFF166534),
+                                ),
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: AppTheme.primaryBlue,
+                              padding: const EdgeInsets.symmetric(vertical: 14),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
+                            child: const Text(
+                              'Simpan Warta',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      },
     );
   }
 }

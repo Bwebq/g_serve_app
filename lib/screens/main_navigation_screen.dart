@@ -16,11 +16,12 @@ class MainNavigationScreen extends StatefulWidget {
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
   @override
   Widget build(BuildContext context) {
+    final topPad = MediaQuery.of(context).padding.top;
     return DefaultTabController(
       length: 4,
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(140),
+          preferredSize: Size.fromHeight(140 + topPad),
           child: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
